@@ -2,11 +2,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
+import './Navbar.css'
 
-function BasicExample() {
+
+function UrbanNavbar() {
   return (
-
-    <Navbar fixed='top' className='Navbar'>
+    <Navbar expand='lg' fixed = 'top' className='Navbar NavbarSpacing justify-content-between'>
       <NavLink to="/" className='navbar-brand'>Urban Uncover</NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -26,4 +27,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default UrbanNavbar;
