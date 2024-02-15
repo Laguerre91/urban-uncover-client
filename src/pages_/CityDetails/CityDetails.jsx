@@ -1,5 +1,5 @@
 
-const CityCard = () => {
+const CityDetails = () => {
 
     return (
         <section className="City">
@@ -8,6 +8,4 @@ const CityCard = () => {
     )
 }
 
-export default CityCard
-
-
+export default CityDetails
