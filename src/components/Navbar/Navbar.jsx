@@ -7,7 +7,7 @@ function BasicExample() {
   return (
 
     <Navbar fixed='top' className='Navbar'>
-      <Navbar.Brand href="/">Urban Uncover</Navbar.Brand>
+      <NavLink to="/" className='navbar-brand'>Urban Uncover</NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">

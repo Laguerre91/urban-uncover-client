@@ -1,7 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar.jsx'
-import HomePage from './Pages/HomePage/HomePage.jsx'
-import CityCard from './Pages/CityCard/CityCard.jsx'
+import HomePage from './pages_/HomePage/HomePage.jsx'
+import CityDetails from './pages_/CityDetails/CityDetails.jsx'
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ function App() {
     <div className='App'>
       <Navbar />
       <Routes>
-        <Route path='/cities/:cityId' element={<CityCard />} />
+        <Route path='/cities/:cityId' element={<CityDetails />} />
         <Route path='/' element={<HomePage />} />
       </Routes>
     </div>
