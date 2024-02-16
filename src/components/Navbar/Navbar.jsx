@@ -38,15 +38,17 @@ function UrbanNavbar() {
         <Nav className="me-auto">
 
           <NavLink className={'nav-link'} to={'/'}>Inicio</NavLink>
-          <NavLink className={'nav-link'} to={'/contact'}>Contact Us</NavLink>
+          <NavLink className={'nav-link'} to={'/about'}>About Us</NavLink>
           <NavDropdown title="Cities" id="cities-dropdown">
-            <NavDropdown.Item>
+
               {cities.map (city => (
-                <NavLink key={city.id} className={'nav-link'} to = {`/cities/${city.id}`}>
-                {city.name}
-              </NavLink>
+                <NavDropdown.Item key={city.id} as={'div'}>
+                  <NavLink className={'nav-link'} to = {`/cities/${city.id}`}>
+                  {city.name}
+                  </NavLink>
+                </NavDropdown.Item>
               ))} 
-            </NavDropdown.Item>
+            
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
