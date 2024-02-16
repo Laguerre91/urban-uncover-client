@@ -1,36 +1,37 @@
 import Carousel from 'react-bootstrap/Carousel';
-import madridPicture from './../../assets/images/picture-madrid.jpeg'
+import madridPicture from './../../assets/images/CitiesImages/picture-madrid.jpeg'
+import amsterdamPicture from './../../assets/images/CitiesImages/picture-amsterdam.webp'
+import athensPicture from './../../assets/images/CitiesImages/picture-atenas.webp'
+import berlinPicture from './../../assets/images/CitiesImages/picture-berlin.jpeg'
+import brusselsPicture from './../../assets/images/CitiesImages/picture-brussels.jpeg'
+import edinbourghPicture from './../../assets/images/CitiesImages/picture-edinbourgh.jpeg'
 
 import './ControlledCarousel.css'
 
-function IndividualIntervalsExample() {
+const ControlledCarousel = () => {
+
     return (
-        <Carousel className='ControlledCarousel'>
+        <Carousel className='ControlledCarousel' indicators={false}>
             <Carousel.Item interval={1000}>
                 <img src={madridPicture} alt="Madrid Picture" />
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item interval={500}>
-                <img src={madridPicture} alt="Madrid Picture" />
-                <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
+            <Carousel.Item interval={1000}>
+                <img src={amsterdamPicture} alt="Amsterdam Picture" />
             </Carousel.Item>
-            <Carousel.Item>
-                <img src={madridPicture} alt="Madrid Picture" />
-                <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                </Carousel.Caption>
+            <Carousel.Item interval={1000}>
+                <img src={athensPicture} alt="Athens Picture" />
+            </Carousel.Item>
+            <Carousel.Item interval={1000}>
+                <img src={berlinPicture} alt="Berlin Picture" />
+            </Carousel.Item>
+            <Carousel.Item interval={1000}>
+                <img src={brusselsPicture} alt="Brussels Picture" />
+            </Carousel.Item>
+            <Carousel.Item interval={1000}>
+                <img src={edinbourghPicture} alt="Edinbourgh Picture" />
             </Carousel.Item>
         </Carousel>
-    );
+    )
 }
 
-export default IndividualIntervalsExample;
+export default ControlledCarousel;
