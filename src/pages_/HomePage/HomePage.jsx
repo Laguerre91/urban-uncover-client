@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 
+
+
 import ControlledCarousel from "../../components/ControlledCarousel/ControlledCarousel"
 
 const API_URL_BASE = "http://localhost:5005/cities"
@@ -21,7 +23,9 @@ function HomePage() {
 
     return (
         <div>
+
             <ControlledCarousel />
+
         </div>
     )
 }

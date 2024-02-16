@@ -1,16 +1,16 @@
 import { Routes, Route } from 'react-router-dom'
 
 import HomePage from './../pages_/HomePage/HomePage.jsx'
-import CityDetails from './../pages_/CityDetails/CityDetails.jsx'
-import CitiesList from './../pages_/CitiesList/CitiesList.jsx'
+import CityPage from './../pages_/CityPage/CityPage.jsx'
+import AllCitiesPage from './../pages_/AllCitiesPage/AllCitiesPage.jsx'
 
 
 const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path='/cities/:cityId' element={<CityDetails />} />
-            <Route path='/cities' element={<CitiesList />} />
+            <Route path='/cities/:cityId' element={<CityPage />} />
+            <Route path='/cities' element={<AllCitiesPage />} />
             <Route path='/' element={<HomePage />} />
         </Routes>
     )

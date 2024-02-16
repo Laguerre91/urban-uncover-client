@@ -1,4 +1,4 @@
-const ActivityCard = () => {
+const ActivityDetailsPage = () => {
 
     return (
         <section className="ActivityCard">
@@ -7,4 +7,4 @@ const ActivityCard = () => {
     )
 }
 
-export default ActivityCard
+export default ActivityDetailsPage

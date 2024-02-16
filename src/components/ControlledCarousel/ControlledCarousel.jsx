@@ -1,10 +1,12 @@
 import Carousel from 'react-bootstrap/Carousel';
 import madridPicture from './../../assets/images/picture-madrid.jpeg'
 
+import './ControlledCarousel.css'
+
 function IndividualIntervalsExample() {
     return (
-        <Carousel>
-            <Carousel.Item interval={500}>
+        <Carousel className='ControlledCarousel'>
+            <Carousel.Item interval={1000}>
                 <img src={madridPicture} alt="Madrid Picture" />
                 <Carousel.Caption>
                     <h3>First slide label</h3>
