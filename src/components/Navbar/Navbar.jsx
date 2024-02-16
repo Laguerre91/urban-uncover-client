@@ -3,27 +3,32 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css'
+import { Row, Col } from 'react-bootstrap';
 
 
 function UrbanNavbar() {
   return (
-    <Navbar expand='lg' fixed = 'top' className='Navbar NavbarSpacing justify-content-between'>
-      <NavLink to="/" className='navbar-brand'>Urban Uncover</NavLink>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
+    <Row>
+      <Col md={{span:40, offset:20}}>
+        <Navbar expand='lg' fixed = 'top' className='Navbar NavbarSpacing justify-content-between'>
+          <NavLink to="/" className='navbar-brand'>Urban Uncover</NavLink>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
 
-          <NavLink className={'nav-link'} to={'/'}>Inicio</NavLink>
-          <NavLink className={'nav-link'} to={'/contact'}>Contact Us</NavLink>
-          <NavDropdown title="Cities" id="cities-dropdown">
-            <NavDropdown.Item>
-              <NavLink className={'nav-link'} to={'/cities/1'}>Madrid</NavLink>
-            </NavDropdown.Item>
+              <NavLink className={'nav-link'} to={'/'}>Inicio</NavLink>
+              <NavLink className={'nav-link'} to={'/contact'}>Contact Us</NavLink>
+              <NavDropdown title="Cities" id="cities-dropdown">
+                <NavDropdown.Item>
+                  <NavLink className={'nav-link'} to={'/cities/1'}>Madrid</NavLink>
+                </NavDropdown.Item>
 
-          </NavDropdown>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </Col>
+    </Row>
   );
 }
 
