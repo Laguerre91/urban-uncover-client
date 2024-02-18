@@ -9,6 +9,8 @@
     height: 50px;
     padding: 20px;
     background-color: #3F7891;
+    border-top: 1px solid black;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .Footer .github-logo {

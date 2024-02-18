@@ -1,9 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import ControlledCarousel from './../../components/ControlledCarousel/ControlledCarousel'
+import CityButton from "../../components/CityButton/CityButton"
 
+import './HomePage.css'
 
-
-import ControlledCarousel from "../../components/ControlledCarousel/ControlledCarousel"
 
 const API_URL_BASE = "http://localhost:5005/cities"
 
@@ -22,10 +23,12 @@ function HomePage() {
     }
 
     return (
-        <div>
-
-            <ControlledCarousel />
-
+        <div className="HomePage">
+            <section className="hero carousel">
+                <h1 className="hero-title">Urban Uncover</h1>
+                <ControlledCarousel />
+                <CityButton />
+            </section>
         </div>
     )
 }
