@@ -1,9 +1,12 @@
 const ActivityDetailsPage = () => {
 
     return (
-        <section className="ActivityCard">
+        <Container className="ActivityCard">
 
-        </section>
+
+
+
+        </Container>
     )
 }
 
