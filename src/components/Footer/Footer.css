@@ -1,10 +1,9 @@
 .Footer {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    top: auto;
     width: 100vw;
     height: 50px;
     padding: 20px;

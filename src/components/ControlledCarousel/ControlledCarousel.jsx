@@ -14,21 +14,57 @@ const ControlledCarousel = () => {
         <Carousel className='ControlledCarousel' indicators={false}>
             <Carousel.Item interval={2000}>
                 <img src={madridPicture} alt="Madrid Picture" />
+
+                <Carousel.Caption className='caption mad-caption'>
+                    <h3>Discover Madrid</h3>
+
+                </Carousel.Caption>
+
             </Carousel.Item>
             <Carousel.Item interval={2000}>
                 <img src={amsterdamPicture} alt="Amsterdam Picture" />
+
+                <Carousel.Caption className='caption ams-caption'>
+                    <h3>Take a walk through Amsterdam</h3>
+
+                </Carousel.Caption>
+
             </Carousel.Item>
             <Carousel.Item interval={2000}>
                 <img src={athensPicture} alt="Athens Picture" />
+
+                <Carousel.Caption className='caption ath-caption'>
+                    <h3>Relax and enjoy Athens</h3>
+
+                </Carousel.Caption>
+
             </Carousel.Item>
             <Carousel.Item interval={2000}>
                 <img src={berlinPicture} alt="Berlin Picture" />
+
+                <Carousel.Caption className='caption ber-caption'>
+                    <h3>Have lots of fun in Berlin</h3>
+
+                </Carousel.Caption>
+
             </Carousel.Item>
             <Carousel.Item interval={2000}>
                 <img src={brusselsPicture} alt="Brussels Picture" />
+
+                <Carousel.Caption className='caption bru-caption'>
+                    <h3>Let Brussels take your breath away</h3>
+
+                </Carousel.Caption>
+
             </Carousel.Item>
             <Carousel.Item interval={2000}>
                 <img src={edinbourghPicture} alt="Edinbourgh Picture" />
+
+                <Carousel.Caption className='caption edin-caption'>
+                    <h3>Fall in love with Edinbourgh</h3>
+
+                </Carousel.Caption>
+
             </Carousel.Item>
         </Carousel>
     )

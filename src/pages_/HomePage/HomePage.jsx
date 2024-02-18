@@ -10,11 +10,15 @@ function HomePage() {
     return (
         <div className="HomePage">
             <section className="hero">
-                <div className="hero-title">
-                    <h1>Urban Uncover</h1>
+
+                <div className='carousel'>
+                    <ControlledCarousel />
                 </div>
-                <ControlledCarousel />
-                <CityButton />
+
+                <div className='btn-cities'>
+                    <CityButton />
+                </div>
+
             </section>
         </div>
     )
