@@ -1,10 +1,11 @@
+import React from 'react';
+import ActivityCard from './../../components/ActivityCard/ActivityCard.jsx';
 
-
-const CityPage = () => {
+const CityPage = ({cityId}) => {
 
     return (
-        <section className="City">
-
+        <section>
+            <ActivityCard cityId={1} />
         </section>
     )
 }
