@@ -1,7 +1,7 @@
 .CityButton {
     position: absolute;
-    top: 500px;
-    left: 150px;
+    top: 70%;
+    left: 10%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

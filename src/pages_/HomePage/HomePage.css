@@ -1,19 +1,19 @@
 .hero-title {
+    position: absolute;
+    left: 50%;
     display: flex;
     justify-content: center;
-    width: 100vw;
-    position: absolute;
+    width: 50vw;
     top: 100px;
 
     font-family: "Kanit", sans-serif;
     font-weight: 500;
     font-style: normal;
     color: rgba(0, 0, 0, 0.337);
-    background-color: rgba(255, 255, 255, 0.309);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* background-color: rgba(255, 255, 255, 0.309);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 
-    font-size: 2em;
     padding: 20px;
-    z-index: 10000;
 
+    z-index: 10000;
 }

@@ -12,22 +12,22 @@ const ControlledCarousel = () => {
 
     return (
         <Carousel className='ControlledCarousel' indicators={false}>
-            <Carousel.Item interval={1000}>
+            <Carousel.Item interval={2000}>
                 <img src={madridPicture} alt="Madrid Picture" />
             </Carousel.Item>
-            <Carousel.Item interval={1000}>
+            <Carousel.Item interval={2000}>
                 <img src={amsterdamPicture} alt="Amsterdam Picture" />
             </Carousel.Item>
-            <Carousel.Item interval={1000}>
+            <Carousel.Item interval={2000}>
                 <img src={athensPicture} alt="Athens Picture" />
             </Carousel.Item>
-            <Carousel.Item interval={1000}>
+            <Carousel.Item interval={2000}>
                 <img src={berlinPicture} alt="Berlin Picture" />
             </Carousel.Item>
-            <Carousel.Item interval={1000}>
+            <Carousel.Item interval={2000}>
                 <img src={brusselsPicture} alt="Brussels Picture" />
             </Carousel.Item>
-            <Carousel.Item interval={1000}>
+            <Carousel.Item interval={2000}>
                 <img src={edinbourghPicture} alt="Edinbourgh Picture" />
             </Carousel.Item>
         </Carousel>
