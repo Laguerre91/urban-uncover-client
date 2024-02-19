@@ -11,16 +11,19 @@ const API_URL_BASE = "http://localhost:5005/cities"
 const ActivityCard = () => {
   const { cityId } = useParams();
   const [activities, setActivities] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetchActivities(cityId);
   }, [cityId]);
 
   const fetchActivities = (cityId) => {
+
     axios
       .get(`${API_URL_BASE}/${cityId}/activities`)
       .then((response) => {
         setActivities(response.data);
+        setIsLoading(false)
       })
       .catch((err) => {
         console.log('Error fetching activities:', err);
@@ -30,20 +33,28 @@ const ActivityCard = () => {
   return (
     <div className='ActivityCard'>
 
-      {activities.map((activity) => (
+      {
+        isLoading
+          ?
+          <h1>cargando...</h1>
+          :
+          activities.map((activity) => (
 
-        <Card key={activity.id} className='activity'>
-          <Card.Img variant="top" src={activity.image} className='img' />
-          <Card.Body>
-            <Card.Title>{activity.name}</Card.Title>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroup.Item>Categories: {activity.categories}</ListGroup.Item>
-            <ListGroup.Item>Price: {activity.activitySpecs.price}€</ListGroup.Item>
-            <ListGroup.Item>Address: {activity.location.address}</ListGroup.Item>
-          </ListGroup>
-        </Card>
-      ))}
+            <Card key={activity.id} className='activity'>
+              <Card.Img variant="top" src={activity.image} className='img' />
+              <Card.Body>
+                <Card.Title>{activity.name}</Card.Title>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>Categories: {activity.categories}</ListGroup.Item>
+                <ListGroup.Item>Price: {activity.activitySpecs.price}€</ListGroup.Item>
+                <ListGroup.Item>Address: {activity.location.address}</ListGroup.Item>
+              </ListGroup>
+            </Card>
+          ))
+
+      }
+
     </div>
   );
 };
