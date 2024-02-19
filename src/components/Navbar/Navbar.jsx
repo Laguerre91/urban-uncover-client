@@ -1,10 +1,13 @@
+import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { NavLink } from 'react-router-dom';
+
 import './Navbar.css'
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import letteringLogo from './../../assets/images/letteringLogo.png'
 
 const API_URL_BASE = "http://localhost:5005/cities"
 
@@ -32,12 +35,13 @@ function UrbanNavbar() {
 
   return (
     <Navbar expand='md' fixed='top' className='Navbar NavbarSpacing justify-content-between'>
-      <NavLink to="/" className='navbar-brand'>Urban Uncover</NavLink>
+      <NavLink to="/" className='navbar-brand'>
+        <img src={letteringLogo} alt="Urban Uncover logo" className='urbanLettLogo' />
+      </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
 
-          <NavLink className={'nav-link'} to={'/'}>Inicio</NavLink>
           <NavLink className={'nav-link'} to={'/about'}>About Us</NavLink>
           <NavDropdown title="Cities" id="cities-dropdown">
 

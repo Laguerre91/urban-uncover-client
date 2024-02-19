@@ -1,19 +1,21 @@
 .ActivityCard {
     display: block;
-    text-align: center;
+    text-align: start;
     margin-top: 80px;
     margin-bottom: 10px;
+    font-size: 0.9em;
 }
 
 .activity-row {
     display: flex;
     align-items: center;
     width: auto;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 20px;
     margin: 0 auto;
     width: 80%;
     padding: 20px;
+    background-color: white;
 
 }
 
@@ -24,4 +26,13 @@
 .img-activity {
     width: 100%;
     height: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-edit {
+    margin-left: 15px;
+}
+
+.btn-delete {
+    margin-left: 100px;
 }

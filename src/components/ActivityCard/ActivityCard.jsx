@@ -5,15 +5,16 @@ import Card from 'react-bootstrap/Card';
 import { Button, Row, Col, Container } from 'react-bootstrap';
 import axios from 'axios';
 
-
 import './ActivityCard.css'
 
 const API_URL_BASE = "http://localhost:5005/cities"
 
 const ActivityCard = () => {
+
+
   const { cityId } = useParams();
   const [activities, setActivities] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchActivities(cityId);
@@ -31,6 +32,7 @@ const ActivityCard = () => {
         console.log('Error fetching activities:', err);
       });
   };
+
 
   return (
     <Container className='ActivityCard'>
@@ -64,9 +66,10 @@ const ActivityCard = () => {
                         <p><strong>Address: </strong>{activity.location.address}</p>
 
                       </Card.Text>
-                      <Link to={activity.id}>
-                        <Button variant="primary">See Activity</Button>
+                      <Link to={`/cities/${activity.id}`}>
+                        <Button variant="dark">See Activity</Button>
                       </Link>
+
                     </Card.Body>
                   </Card>
 
