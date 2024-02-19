@@ -1,8 +1,10 @@
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+
+import Card from 'react-bootstrap/Card';
+import { Button, Row, Col, Container } from 'react-bootstrap';
+import axios from 'axios';
+
 
 import './ActivityCard.css'
 
@@ -31,7 +33,7 @@ const ActivityCard = () => {
   };
 
   return (
-    <div className='ActivityCard'>
+    <Container className='ActivityCard'>
 
       {
         isLoading
@@ -40,22 +42,44 @@ const ActivityCard = () => {
           :
           activities.map((activity) => (
 
-            <Card key={activity.id} className='activity'>
-              <Card.Img variant="top" src={activity.image} className='img' />
-              <Card.Body>
-                <Card.Title>{activity.name}</Card.Title>
-              </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroup.Item>Categories: {activity.categories}</ListGroup.Item>
-                <ListGroup.Item>Price: {activity.activitySpecs.price}€</ListGroup.Item>
-                <ListGroup.Item>Address: {activity.location.address}</ListGroup.Item>
-              </ListGroup>
-            </Card>
+            <div key={activity.id} className='ActivityCard'>
+
+              <Row className='activity-row'>
+                <Col md={6}>
+                  <Card.Img
+                    className='img-activity'
+                    src={activity.image}
+                    alt="Activity image"
+                  />
+                </Col>
+
+                <Col md={6}>
+
+                  <Card key={activity.id} className='activity-details'>
+                    <Card.Header>{activity.name}</Card.Header>
+                    <Card.Body>
+                      <Card.Text>
+                        <p><strong>Categories: </strong>{activity.categories.join(", ")}</p>
+                        <p><strong>Price: </strong>{activity.activitySpecs.price}€</p>
+                        <p><strong>Address: </strong>{activity.location.address}</p>
+
+                      </Card.Text>
+                      <Link to={activity.id}>
+                        <Button variant="primary">See Activity</Button>
+                      </Link>
+                    </Card.Body>
+                  </Card>
+
+                </Col>
+              </Row>
+
+            </div>
+
           ))
 
       }
 
-    </div>
+    </Container>
   );
 };
 
