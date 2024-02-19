@@ -7,6 +7,7 @@ import {
     Row,
     Col,
     Spinner,
+    Container
 } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -60,7 +61,7 @@ const CityCard = () => {
 
                                 <Row className="rowCard">
                                     <Col md={6} className="imgCol">
-                                        <Card.Img
+                                        <Card.Img className="img-city"
                                             src={city.cover}
                                             alt="Image from {city.name}"
                                         ></Card.Img>
@@ -77,7 +78,7 @@ const CityCard = () => {
                                                             <strong>{activity.categories.join(", ")}</strong>
                                                         </Card.Text>
                                                     ))}
-                                                <Link to={`/cities/${city.id}`}>
+                                                <Link className="link-btn" to={`/cities/${city.id}`}>
                                                     <div className="d-grid gap-2">
                                                         <Button className="btn-goTo" variant="primary">
                                                             Go to {city.name}
