@@ -7,7 +7,6 @@ import {
     Row,
     Col,
     Spinner,
-    Container
 } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -71,6 +70,7 @@ const CityCard = () => {
                                             <Card.Header as="h5">{city.name}</Card.Header>
                                             <Card.Body>
                                                 <Card.Text>{city.description}</Card.Text>
+                                                <h4>Activities:</h4>
                                                 {activities[city.id] &&
                                                     activities[city.id].map((activity) => (
                                                         <Card.Text>
