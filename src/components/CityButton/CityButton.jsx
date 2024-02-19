@@ -36,8 +36,9 @@ const CityButton = () => {
                     )
                 })
             }
-
-            <Button variant="dark" className='btn-city btn-allCities'>Discover All</Button>
+            <Link to={`/cities`}>
+                <Button variant="dark" className='btn-city btn-allCities'>Discover All</Button>
+            </Link>
 
         </div>
     )

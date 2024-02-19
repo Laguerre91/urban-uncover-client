@@ -29,7 +29,9 @@ const ActivityCard = () => {
 
   return (
     <div className='ActivityCard'>
+
       {activities.map((activity) => (
+
         <Card key={activity.id} className='activity'>
           <Card.Img variant="top" src={activity.image} className='img' />
           <Card.Body>

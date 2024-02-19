@@ -15,10 +15,12 @@ import { Link } from "react-router-dom";
 
 const CityCard = () => {
     const [cities, setCities] = useState([]);
-    const [activities, setActivities] = useState();
+    const [activities, setActivities] = useState([]);
 
-    useEffect(() => loadCity(), []);
-    useEffect(() => loadActivity(), []);
+    useEffect(() => {
+        loadCity()
+        loadActivity()
+    }, []);
 
     const loadCity = () => {
         axios
@@ -46,10 +48,10 @@ const CityCard = () => {
     };
 
     return (
-        <div className="divCard">
+        <div className="CityCard">
             {cities.map((city) => {
                 return (
-                    <div>
+                    <div key={city.id}>
                         <Row className="rowCard">
                             <Col md={6} className="imgCol">
                                 <Card.Img

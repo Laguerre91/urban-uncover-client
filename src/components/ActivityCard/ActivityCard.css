@@ -1,5 +1,7 @@
 .activity {
-    width: 50%;
+    width: 30%;
+    height: 600px;
+    margin: 40px;
 }
 
 .activity .img {
