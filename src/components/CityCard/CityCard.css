@@ -1,0 +1,31 @@
+.rowCard {
+    position: relative;
+    top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgCol {
+    width: 45%;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.cityCard {
+    margin-bottom: 20px;
+    border: none;
+}
+
+.CityButton {
+    background-color: #2D373B;
+}
+
+.CityButton :hover {
+    background-color: aliceblue;
+}
+
+.card-header {
+    background-color: white;
+    font-size: 2em;
+}
