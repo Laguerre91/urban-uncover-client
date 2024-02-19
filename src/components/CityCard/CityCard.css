@@ -17,11 +17,11 @@
     border: none;
 }
 
-.CityButton {
+.btn-goTo {
     background-color: #2D373B;
 }
 
-.CityButton :hover {
+.btn-goTo :hover {
     background-color: aliceblue;
 }
 

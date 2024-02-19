@@ -71,7 +71,7 @@ const CityCard = () => {
                                             ))}
                                         <Link to={`/cities/${city.id}`}>
                                             <div className="d-grid gap-2">
-                                                <Button className="CityButton" variant="primary">
+                                                <Button className="btn-goTo" variant="primary">
                                                     Go to {city.name}
                                                 </Button>
                                             </div>
