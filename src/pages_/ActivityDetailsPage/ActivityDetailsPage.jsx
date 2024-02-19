@@ -57,7 +57,7 @@ const ActivityDetailsPage = () => {
                             <div className="d-grid gap-2">
                                 <Button className='btn-back'>Back to....</Button>
                             </div>
-                            <div>
+                            <div className='btns'>
                                 <Button className='btn-edit'>Edit activity</Button>
                                 <Button className='X'>X</Button>
                             </div>
