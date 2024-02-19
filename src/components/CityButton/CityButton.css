@@ -1,0 +1,21 @@
+.CityButton {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80vw;
+    background-color: rgba(255, 255, 255, 0.356);
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.btn-city {
+    font-size: 1.2em;
+    margin: 10px;
+    width: 160px;
+}
+
+.btn-allCities {
+    background-color: #3291BA;
+    border: none;
+}

@@ -9,8 +9,12 @@ const AppRoutes = () => {
 
     return (
         <Routes>
+<<<<<<< HEAD
             <Route path='/cities/:cityId/:activityId' element={<ActivityDetailsPage />} />
             <Route path='/cities/:cityId' element={<CityPage />} />
+=======
+            <Route path="/cities/:cityId" element={<CityPage />} />
+>>>>>>> main
             <Route path='/cities' element={<AllCitiesPage />} />
             <Route path='/' element={<HomePage />} />
         </Routes>

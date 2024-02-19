@@ -1,12 +1,11 @@
-
+import ActivityCard from './../../components/ActivityCard/ActivityCard.jsx'
 
 const CityPage = () => {
+  return (
+    <section>
+      <ActivityCard />
+    </section>
+  );
+};
 
-    return (
-        <section className="City">
-
-        </section>
-    )
-}
-
-export default CityPage
+export default CityPage;

@@ -1,31 +1,25 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import ControlledCarousel from './../../components/ControlledCarousel/ControlledCarousel'
+import CityButton from "../../components/CityButton/CityButton"
 
+import './HomePage.css'
 
-
-import ControlledCarousel from "../../components/ControlledCarousel/ControlledCarousel"
-
-const API_URL_BASE = "http://localhost:5005/cities"
 
 function HomePage() {
 
-    const [cities, setCities] = useState([])
-
-    useEffect(() => getAllCities(), [])
-
-    const getAllCities = () => {
-
-        axios
-            .get(`${API_URL_BASE}`)
-            .then(({ data }) => setCities(data))
-            .catch(err => console.log(err))
-    }
 
     return (
-        <div>
+        <div className="HomePage">
+            <section className="hero">
 
-            <ControlledCarousel />
+                <div className='carousel'>
+                    <ControlledCarousel />
+                </div>
 
+                <div className='btn-cities'>
+                    <CityButton />
+                </div>
+
+            </section>
         </div>
     )
 }

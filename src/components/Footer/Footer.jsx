@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className="Footer">
             <a target="_blank" href="https://github.com/Laguerre91/urban-uncover-client">GitHub Link</a>
             <img className='github-logo' src={githubLogo} alt="Github Logo" />
-            <p>©2024</p>
+            <p>©2024 - Made with ❤️</p>
         </footer>
     )
 }

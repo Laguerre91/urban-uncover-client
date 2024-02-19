@@ -43,7 +43,7 @@ function UrbanNavbar() {
 
               {cities.map (city => (
                 <NavDropdown.Item key={city.id} as={'div'}>
-                  <NavLink className={'nav-link'} to = {`/cities/${city.id}`}>
+                  <NavLink className={'nav-link'} to = {`/cities/${city.id}`} cityid = {city.id}>
                   {city.name}
                   </NavLink>
                 </NavDropdown.Item>
