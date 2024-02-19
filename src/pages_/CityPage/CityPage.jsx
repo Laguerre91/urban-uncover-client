@@ -1,8 +1,12 @@
 import ActivityCard from './../../components/ActivityCard/ActivityCard.jsx'
+import AddActivityForm from '../../components/AddActivityForm/AddActivityForm.jsx';
+import './CityPage.css'
+
 
 const CityPage = () => {
   return (
-    <section>
+    <section className='CityPage'>
+      <AddActivityForm />
       <ActivityCard />
     </section>
   );

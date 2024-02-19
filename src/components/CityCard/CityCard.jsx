@@ -12,6 +12,8 @@ import {
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
+
 const CityCard = () => {
     const [cities, setCities] = useState([]);
     const [activities, setActivities] = useState();

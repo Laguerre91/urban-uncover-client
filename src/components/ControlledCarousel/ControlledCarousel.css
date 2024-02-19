@@ -1,6 +1,6 @@
 .caption {
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 60%;
     color: rgba(0, 0, 0, 0.577);
     font-family: "Kanit", sans-serif;
@@ -14,7 +14,7 @@
 }
 
 .caption h3 {
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 .ams-caption {
