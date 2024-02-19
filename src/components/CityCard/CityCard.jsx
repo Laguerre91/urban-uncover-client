@@ -1,8 +1,9 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./../CityCard/CityCard.css"
 import { useEffect, useState } from "react";
-import { Container, Card, Button, Row, Col, NavLink } from "react-bootstrap";
+import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const CityCard = () => {
     const [cities, setCities] = useState([])
@@ -45,24 +46,21 @@ const CityCard = () => {
                         <div>
                             <Row className="rowCard">
                                 <Col md={6} className="imgCol">
-                                    <img src={city.cover} alt='Image from {city.name}'></img>
+                                    <Card.Img src={city.cover} alt='Image from {city.name}'></Card.Img>
                                 </Col>
                                 <Col md={6}>
                                     <Card key={city.Id} className="cityCard">
                                         <Card.Header as="h5" >{city.name}</Card.Header>
-
                                         <Card.Body>
-
                                             <Card.Text>{city.description}</Card.Text>
-
                                             {activities[city.id] && activities[city.id].map(activity => (
                                                 <Card.Text>{activity.name}. <strong>{activity.categories.join(", ")}</strong></Card.Text>
                                             ))}
-                                            <NavLink to={`/cities/${city.id}`}>
+                                            <Link to={`/cities/${city.id}`}>
                                                 <div className="d-grid gap-2">
                                                     <Button className="CityButton" variant="primary">Go to {city.name}</Button>
                                                 </div>
-                                            </NavLink>
+                                            </Link>
                                         </Card.Body>
                                     </Card>
                                 </Col>
