@@ -23,6 +23,8 @@ const CityButton = () => {
             .catch(err => console.log(err))
     }
 
+    // TODO: PLURALIZAR COMPONENTE
+
     return (
 
         <div className="CityButton">
