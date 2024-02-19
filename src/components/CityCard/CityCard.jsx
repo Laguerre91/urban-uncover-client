@@ -11,7 +11,9 @@ import {
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-
+// TODO: RENOMINAR A CITIES LIST
+// TODO: DESACOPLAT CITY CARD
+// TODO: PLURALIZAR COMPONENTE
 
 const CityCard = () => {
     const [cities, setCities] = useState([]);
@@ -68,7 +70,7 @@ const CityCard = () => {
                                         ></Card.Img>
                                     </Col>
                                     <Col md={6}>
-                                        <Card key={city.Id} className="cityCard">
+                                        <Card className="cityCard">
                                             <Card.Header as="h5">{city.name}</Card.Header>
                                             <Card.Body>
                                                 <Card.Text>{city.description}</Card.Text>

@@ -11,7 +11,6 @@ const API_URL_BASE = "http://localhost:5005/cities"
 
 const ActivityCard = () => {
 
-
   const { cityId } = useParams();
   const [activities, setActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +32,8 @@ const ActivityCard = () => {
       });
   };
 
+  // TODO: RENOMINAR A ACTIVITIESLIST
+  // TODO: DESACOPLAR ACTIVITY CARD
 
   return (
     <Container className='ActivityCard'>
@@ -44,7 +45,7 @@ const ActivityCard = () => {
           :
           activities.map((activity) => (
 
-            <div key={activity.id} className='ActivityCard'>
+            <div key={activity.id} className='activity-container'>
 
               <Row className='activity-row'>
                 <Col md={6}>

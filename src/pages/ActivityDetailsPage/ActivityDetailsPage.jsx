@@ -1,6 +1,6 @@
 import { useEffect, useState, } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './../../pages_/ActivityDetailsPage/ActivityDetailsPage.css'
+import './ActivityDetailsPage.css'
 import { Row, Col, Container, Spinner, Button } from "react-bootstrap"
 import axios from 'axios';
 
@@ -10,6 +10,7 @@ const ActivityDetailsPage = () => {
     const [activity, setActivity] = useState({ API_BASE_URL });
     const [isLoading, setIsLoading] = useState(true)
     const { activityId } = useParams()
+
     useEffect(() => {
         loadActivity()
     }, [])
@@ -28,7 +29,7 @@ const ActivityDetailsPage = () => {
 
     return (
         <Container className="ActivityCard">
-            <h1>Acitivity details</h1>
+            <h1>Activity details</h1>
 
             {
                 isLoading
@@ -61,17 +62,9 @@ const ActivityDetailsPage = () => {
                                 <Button className='btn-edit'>Edit activity</Button>
                                 <Button className='X'>X</Button>
                             </div>
-
-
                         </Col>
-
-
-
                     </Row>
             }
-
-
-
 
         </Container >
     )
