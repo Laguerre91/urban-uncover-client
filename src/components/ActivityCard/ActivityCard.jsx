@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import './ActivityCard.css'
+
 const API_URL_BASE = "http://localhost:5005/cities"
 
 const ActivityCard = () => {
@@ -26,10 +28,10 @@ const ActivityCard = () => {
   };
 
   return (
-    <div>
+    <div className='ActivityCard'>
       {activities.map((activity) => (
-        <Card key={activity.id} style={{ width: '20rem' }}>
-          <Card.Img variant="top" src={activity.image} />
+        <Card key={activity.id} className='activity'>
+          <Card.Img variant="top" src={activity.image} className='img' />
           <Card.Body>
             <Card.Title>{activity.name}</Card.Title>
           </Card.Body>

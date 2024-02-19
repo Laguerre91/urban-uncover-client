@@ -31,7 +31,7 @@ function UrbanNavbar() {
 
 
   return (
-    <Navbar expand='lg' fixed = 'top' className='Navbar NavbarSpacing justify-content-between'>
+    <Navbar expand='md' fixed='top' className='Navbar NavbarSpacing justify-content-between'>
       <NavLink to="/" className='navbar-brand'>Urban Uncover</NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -41,14 +41,14 @@ function UrbanNavbar() {
           <NavLink className={'nav-link'} to={'/about'}>About Us</NavLink>
           <NavDropdown title="Cities" id="cities-dropdown">
 
-              {cities.map (city => (
-                <NavDropdown.Item key={city.id} as={'div'}>
-                  <NavLink className={'nav-link'} to = {`/cities/${city.id}`} cityid = {city.id}>
+            {cities.map(city => (
+              <NavDropdown.Item key={city.id} as={'div'} className='dropdown-items'>
+                <NavLink className={'nav-link'} to={`/cities/${city.id}`} cityid={city.id}>
                   {city.name}
-                  </NavLink>
-                </NavDropdown.Item>
-              ))} 
-            
+                </NavLink>
+              </NavDropdown.Item>
+            ))}
+
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
