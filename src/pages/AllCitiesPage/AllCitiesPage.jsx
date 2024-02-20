@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
-import { Container } from "react-bootstrap";
-import CityCard from "../../components/CityCard/CityCard";
+import CitiesList from "../../components/CitiesList/CitiesList";
 
 const AllCitiesPage = () => {
 
@@ -9,7 +8,7 @@ const AllCitiesPage = () => {
 
     return (
 
-        <CityCard />
+        <CitiesList />
 
     )
 }
