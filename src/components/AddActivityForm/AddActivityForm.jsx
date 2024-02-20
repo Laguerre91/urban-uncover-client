@@ -9,7 +9,7 @@ import './AddActivityForm.css'
 const API_URL_BASE = "http://localhost:5005"
 
 
-function AddActivityForm() {
+function AddActivityForm({fetchActivities}) {
 
     const [cities, setCities] = useState([])
 
@@ -39,23 +39,42 @@ function AddActivityForm() {
           .catch(err => console.log(err))
       }, [])
 
-    const handleFormSubmit = e => {
-        e.preventDefault()
+
+      const handleFormSubmit = e => {
+        e.preventDefault();
       
         axios
-          .post(`${API_URL_BASE}/activities`, activityData)
-          .then((response) => {
-              const newActivity = response.data
-              setActivityData(newActivity)
-              navigate('/cities/1')
-          })
-          .catch(err => console.log(err))
+        .post(`${API_URL_BASE}/activities`, activityData)
+        .then((response) => {
+            const newActivity = response.data;
+            setActivityData(newActivity);
+            newActivity.id += 1;
+            navigate(`/cities/${activityData.cityID}`);
+
+            fetchActivities(activityData.cityID);
+        })
+        .catch(err => console.log(err))
     }
 
+    
+
     const handleInputChange = e => {
-        const { name, value } = e.target
-        setActivityData(prevState => ({ ...prevState, [name]: value }))
-    }
+        const { name, value } = e.target;
+    
+        if (name.includes('.')) {
+            const [fieldName, nestedFieldName] = name.split('.')
+            setActivityData(prevState => ({
+                ...prevState,
+                [fieldName]: {
+                    ...prevState[fieldName],
+                    [nestedFieldName]: value
+                }
+            }));
+        } else {
+            setActivityData(prevState => ({ ...prevState, [name]: value }));
+        }
+    };
+    
 
     const handleCityChange = e => {
         setActivityData({ ...activityData, cityID: e.target.value })
@@ -117,7 +136,7 @@ function AddActivityForm() {
                                 type="text"
                                 value={activityData.activitySpecs.price}
                                 onChange={handleInputChange}
-                                name={'price'}
+                                name={'activitySpecs.price'}
                             />
                         </Form.Group>
 
@@ -141,13 +160,13 @@ function AddActivityForm() {
 
                     <Col>
 
-                        <Form.Group className="mb-3" controlId="location">
+                        <Form.Group className="mb-3" controlId="address">
                             <Form.Label>What's its address?</Form.Label>
                             <Form.Control
                                 type="text"
                                 value={activityData.location.address}
                                 onChange={handleInputChange}
-                                name={'location'}
+                                name={'location.address'}
                             />
                         </Form.Group>
 
