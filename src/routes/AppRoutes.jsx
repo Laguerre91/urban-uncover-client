@@ -4,11 +4,13 @@ import HomePage from './../pages/HomePage/HomePage.jsx'
 import CityPage from './../pages/CityPage/CityPage.jsx'
 import AllCitiesPage from './../pages/AllCitiesPage/AllCitiesPage.jsx'
 import ActivityDetailsPage from './../pages/ActivityDetailsPage/ActivityDetailsPage.jsx'
+import About from './../pages/About/About.jsx'
 
 const AppRoutes = () => {
 
     return (
         <Routes>
+            <Route path="/about" element={<About />} />
             <Route path="/cities/:cityId/:activityId" element={<ActivityDetailsPage />} />
             <Route path="/cities/:cityId" element={<CityPage />} />
             <Route path='/cities' element={<AllCitiesPage />} />
