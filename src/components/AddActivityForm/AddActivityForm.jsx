@@ -6,7 +6,7 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 
 import './AddActivityForm.css'
 
-const API_URL_BASE = "http://localhost:5005/activities"
+const API_URL_BASE = "http://localhost:5005"
 
 
 function AddActivityForm() {
@@ -18,8 +18,9 @@ function AddActivityForm() {
         description: '',
         category: '',
         image: '',
+        cityID:'',
         location: {
-            addres: ''
+            address: ''
         },
         activitySpecs: {
             price: 0,
@@ -29,20 +30,35 @@ function AddActivityForm() {
 
     const navigate = useNavigate()
 
-    const handleFormSubmit = (e) => {
-
-        e.preventDefault()
-
+    useEffect(() => {
         axios
-            .post(`${API_URL_BASE}`, activityData)
-            .then(() => navigate('/activities'))
-            .catch(err => console.log(err))
+          .get(`${API_URL_BASE}/cities`)
+          .then((response) => {
+            setCities(response.data)
+          })
+          .catch(err => console.log(err))
+      }, [])
 
+    const handleFormSubmit = e => {
+        e.preventDefault()
+      
+        axios
+          .post(`${API_URL_BASE}/activities`, activityData)
+          .then((response) => {
+              const newActivity = response.data
+              setActivityData(newActivity)
+              navigate('/cities/1')
+          })
+          .catch(err => console.log(err))
     }
 
     const handleInputChange = e => {
-        const { value, name } = e.target
-        setActivityData({ ...activityData, [name]: value })
+        const { name, value } = e.target
+        setActivityData(prevState => ({ ...prevState, [name]: value }))
+    }
+
+    const handleCityChange = e => {
+        setActivityData({ ...activityData, cityID: e.target.value })
     }
 
 
@@ -52,6 +68,20 @@ function AddActivityForm() {
             <Form className="mt-5 form-details" onSubmit={handleFormSubmit}>
 
                 <Row>
+
+                    <Col>
+                        <Form.Group className="mb-3" controlId="city">
+                        <Form.Label>City</Form.Label>
+                        <Form.Select value={activityData.cityID} onChange={handleCityChange}>
+                            <option value="">Select a city</option>
+                            {cities.map((city) => (
+                            <option key={city.id} value={city.id}>
+                                {city.name}
+                            </option>
+                            ))}
+                        </Form.Select>
+                        </Form.Group>
+                    </Col>
 
                     <Col>
                         <Form.Group className="mb-3" controlId="name">
@@ -115,7 +145,7 @@ function AddActivityForm() {
                             <Form.Label>What's its address?</Form.Label>
                             <Form.Control
                                 type="text"
-                                value={activityData.location.addres}
+                                value={activityData.location.address}
                                 onChange={handleInputChange}
                                 name={'location'}
                             />
