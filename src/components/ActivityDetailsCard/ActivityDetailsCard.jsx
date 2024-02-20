@@ -1,23 +1,27 @@
 import { useEffect, useState, } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Row, Col, Container, Spinner, Button } from "react-bootstrap"
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Row, Col, Container, Spinner, Button, Modal } from "react-bootstrap"
 import axios from 'axios';
 import pin from './../../assets/images/pin.png'
+
 
 import './ActivityDetailsCard.css'
 
 const API_BASE_URL = "http://localhost:5005/activities"
 
-const CITIES_API_URL_BASE = "http://localhost:5005/cities"
-
 const ActivityDetailsCard = () => {
 
     const [activity, setActivity] = useState({ API_BASE_URL });
-    const [cities, setCities] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [show, setShow] = useState(false);
 
     const { activityId } = useParams()
-    const { cityId } = useParams()
+
+    const navigate = useNavigate()
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
 
     useEffect(() => {
         loadActivity()
@@ -33,6 +37,14 @@ const ActivityDetailsCard = () => {
             })
             .catch((err) => console.log(err));
     };
+
+    const deleteActivity = () => {
+
+        axios
+            .delete(`${API_BASE_URL}/${activityId}`)
+            .then(() => navigate(`/cities`))
+            .catch(err => console.log(err))
+    }
 
 
     return (
@@ -103,11 +115,31 @@ const ActivityDetailsCard = () => {
 
                             <div className='btns'>
                                 <Button className='btn-edit' variant='secondary'>Edit activity</Button>
-                                <Button className='btn-delete' variant='danger'>X</Button>
+                                <Button className='btn-delete' variant='danger' onClick={handleShow}>X</Button>
                             </div>
                         </Col>
                     </Row>
             }
+
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>You're deleting an activity</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    This action cannot be reversed. Are you sure you want to continue?
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cancel
+                    </Button>
+                    <Button variant="danger" onClick={deleteActivity}>Delete Anyway</Button>
+                </Modal.Footer>
+            </Modal>
 
         </Container >
     )
