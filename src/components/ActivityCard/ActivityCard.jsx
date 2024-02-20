@@ -29,8 +29,8 @@ const ActivityCard = props => {
           <Col md={6}>
 
             <Card key={activity.id} className='activity-details'>
-              <Card.Header>{activity.name}</Card.Header>
-              <Card.Body>
+              <h2 className='act-header'>{activity.name}</h2>
+              <Card.Body className='act-body'>
                 <Card.Text>
                   <p><strong>Categories: </strong>{activity.categories.join(", ")}</p>
 
@@ -46,7 +46,7 @@ const ActivityCard = props => {
 
                 </Card.Text>
                 <Link to={`/cities/activities/${activity.id}`}>
-                  <Button variant="dark">See Activity</Button>
+                  <Button className='act-btn'>See Activity</Button>
                 </Link>
               </Card.Body>
             </Card>
