@@ -28,7 +28,7 @@ const ActivityDetailsPage = () => {
 
 
     return (
-        <Container className="ActivityCard">
+        <Container className="ActivityDetailsPage">
             <h1>Activity details</h1>
 
             {

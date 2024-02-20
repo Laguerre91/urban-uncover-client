@@ -1,4 +1,4 @@
-import ActivityCard from './../../components/ActivityCard/ActivityCard.jsx'
+import ActivitiesList from '../../components/ActivitiesList/ActivitiesList.jsx';
 import AddActivityForm from '../../components/AddActivityForm/AddActivityForm.jsx';
 import './CityPage.css'
 
@@ -24,7 +24,7 @@ const CityPage = () => {
 
         </Row>
 
-        <ActivityCard />
+        <ActivitiesList />
 
       </Container>
 
