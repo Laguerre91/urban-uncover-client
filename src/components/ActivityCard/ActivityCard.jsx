@@ -8,8 +8,8 @@ import './ActivityCard.css'
 const ActivityCard = props => {
 
   const activity = props.activityInfo
-  // const deleteActivity = props.deleteActivity
-  // const editActivity = props.editActivity
+  const deleteActivity = props.deleteActivity
+  const editActivity = props.editActivity
 
 
   return (
@@ -33,16 +33,21 @@ const ActivityCard = props => {
               <Card.Body>
                 <Card.Text>
                   <p><strong>Categories: </strong>{activity.categories.join(", ")}</p>
-                  <p><strong>Price: </strong>{activity.activitySpecs.price}€</p>
+
+                  {
+                    activity.activitySpecs.price === 0 ? (
+                      <p><strong>Price: </strong>No need to buy tickets to enter</p>
+                    ) : (
+                      <p><strong>Price: </strong>{activity.activitySpecs.price}€</p>
+                    )
+                  }
+
                   <p><strong>Address: </strong>{activity.location.address}</p>
 
                 </Card.Text>
-                <Link to={`/cities/${activity.id}`}>
+                <Link to={`/cities/activities/${activity.id}`}>
                   <Button variant="dark">See Activity</Button>
-                  {/* <Button variant='warning' onClick={() => editActivity(activity.id)}>Edit</Button>
-                  <Button variant='danger' onClick={() => deleteActivity(activity.id)}>X</Button> */}
                 </Link>
-
               </Card.Body>
             </Card>
 

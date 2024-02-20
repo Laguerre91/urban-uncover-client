@@ -1,0 +1,27 @@
+.ActivityDetailsCard {
+    position: relative;
+    top: 90px;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    padding: 30px;
+}
+
+.img-activity {
+    width: 100%;
+    height: 100%;
+    padding: 20px 5px 20px 15px;
+
+}
+
+.btn-back {
+    background-color: #2D373B;
+    border: none;
+    text-decoration: none;
+}
+
+.text {
+    text-align: justify;
+}
