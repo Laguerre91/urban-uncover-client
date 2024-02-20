@@ -1,0 +1,29 @@
+.AboutPage {
+    min-height: 100vh;
+    margin-top: 90px;
+    text-align: center;
+
+
+}
+
+.devCard {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgba(255, 255, 255, 0.75);
+
+}
+
+.profileFoto {
+    width: auto;
+    height: 50%;
+}
+
+.imgLink {
+    margin: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+.gitLink,
+.edinLink {
+    text-decoration: none;
+}
