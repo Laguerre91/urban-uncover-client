@@ -1,15 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import './CityButton.css'
+import './CityButtons.css'
 import Button from 'react-bootstrap/Button';
-import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const API_URL_BASE = "http://localhost:5005/cities"
 
 
-const CityButton = () => {
+const CityButtons = () => {
 
     const [cities, setCities] = useState([])
 
@@ -23,11 +22,10 @@ const CityButton = () => {
             .catch(err => console.log(err))
     }
 
-    // TODO: PLURALIZAR COMPONENTE
 
     return (
 
-        <div className="CityButton">
+        <div className="CityButtons">
 
             {
                 cities.map(elm => {
@@ -46,4 +44,4 @@ const CityButton = () => {
     )
 }
 
-export default CityButton;
+export default CityButtons;

@@ -1,5 +1,5 @@
 import ControlledCarousel from './../../components/ControlledCarousel/ControlledCarousel'
-import CityButton from "../../components/CityButton/CityButton"
+import CityButtons from "../../components/CityButtons/CityButtons"
 
 import './HomePage.css'
 
@@ -16,7 +16,7 @@ function HomePage() {
                 </div>
 
                 <div className='btn-cities'>
-                    <CityButton />
+                    <CityButtons />
                 </div>
 
             </section>
