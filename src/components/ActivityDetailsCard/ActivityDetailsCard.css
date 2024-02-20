@@ -7,21 +7,65 @@
     margin: 0 auto;
     margin-bottom: 120px;
     padding: 30px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+
 }
 
 .img-activity {
     width: 100%;
-    height: 100%;
-    padding: 20px 5px 20px 15px;
+    height: auto;
+    padding: 10px;
+}
 
+.location-pin {
+    width: 40px;
+    height: 40px;
+}
+
+.positioning {
+    display: flex;
+    justify-content: space-between;
+}
+
+.act-category strong {
+    padding: 7px;
+    background-color: #3291BA;
+    border-radius: 5px;
+    color: white;
+}
+
+.free-act {
+    color: green;
 }
 
 .btn-back {
-    background-color: #2D373B;
     border: none;
+    background-color: #2D373B;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-bottom: 10px;
+}
+
+.btn-back:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+.link-btn {
     text-decoration: none;
 }
 
-.text {
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.act-description {
     text-align: justify;
+}
+
+.text h2 {
+    text-align: start;
+    margin-bottom: 20px;
 }

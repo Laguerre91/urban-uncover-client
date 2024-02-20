@@ -8,19 +8,19 @@ function HomePage() {
 
 
     return (
-        <div className="HomePage">
-            <section className="hero">
 
-                <div className='carousel'>
-                    <ControlledCarousel />
-                </div>
+        <section className="HomePage hero">
 
-                <div className='btn-cities'>
-                    <CityButtons />
-                </div>
 
-            </section>
-        </div>
+            <ControlledCarousel />
+
+
+            <div className='btn-cities'>
+                <CityButtons />
+            </div>
+
+        </section>
+
     )
 }
 

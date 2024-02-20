@@ -1,0 +1,10 @@
+.ActivityDetailsPage {
+    min-height: 100vh;
+    margin: 100px;
+}
+
+.detailsPage-title {
+    position: absolute;
+    top: 15%;
+    left: 43%;
+}

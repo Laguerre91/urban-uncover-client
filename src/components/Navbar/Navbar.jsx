@@ -13,7 +13,7 @@ const API_URL_BASE = "http://localhost:5005/cities"
 
 
 
-function UrbanNavbar() {
+const NavBar = () => {
 
   const [cities, setCities] = useState([])
 
@@ -42,13 +42,14 @@ function UrbanNavbar() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
 
-          <NavLink className={'nav-link'} to={'/about'}>About Us</NavLink>
+          <NavLink className='nav-link' to={'/about'}>About Us</NavLink>
           <NavDropdown title="Cities" id="cities-dropdown">
 
             {cities.map(city => (
               <NavDropdown.Item key={city.id} as={'div'} className='dropdown-items'>
-                <NavLink className={'nav-link'} to={`/cities/${city.id}`} cityid={city.id}>
+                <NavLink className="cities-link" to={`/cities/${city.id}`} cityid={city.id}>
                   {city.name}
+                  <hr />
                 </NavLink>
               </NavDropdown.Item>
             ))}
@@ -60,4 +61,4 @@ function UrbanNavbar() {
   );
 }
 
-export default UrbanNavbar;
+export default NavBar;
