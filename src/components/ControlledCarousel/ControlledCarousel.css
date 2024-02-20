@@ -16,3 +16,8 @@
 .caption h3 {
     font-size: 2em;
 }
+
+.carousel-img {
+    min-width: 100vw;
+    min-height: 100vh;
+}

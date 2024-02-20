@@ -42,7 +42,7 @@ const CityCard = props => {
                 </Col>
                 <Col md={6}>
                     <Card className="cityCard">
-                        <Card.Header as="h5">{city.name}</Card.Header>
+                        <Card.Header as="h5" className="cityHeader">{city.name}</Card.Header>
                         <Card.Body>
                             <Card.Text>{city.description}</Card.Text>
                             <h4>Activities:</h4>

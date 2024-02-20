@@ -6,6 +6,7 @@
     font-size: 0.9em;
     width: 70%;
 
+
 }
 
 .activity-container {
@@ -21,16 +22,33 @@
     margin: 0 auto;
     width: 100%;
     padding: 20px;
-    background-color: white;
-
+    background-color: rgba(255, 255, 255, 0.75);
 }
 
 .activity-details {
     border: none;
+    background: none;
+    text-align: start;
+}
+
+.act-body {
+    margin-top: 20px;
+    padding: 0;
 }
 
 .img-activity {
-    width: 100%;
-    height: 300px;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.act-btn {
+    border: none;
+    background-color: #2D373B;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.act-btn:hover {
+    background-color: aliceblue;
+    color: black;
 }
