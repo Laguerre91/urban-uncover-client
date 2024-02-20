@@ -18,8 +18,6 @@ const CityPage = () => {
             <h3>Create a new activity!</h3>
             <hr />
 
-            <AddActivityForm />
-
           </Col>
 
         </Row>
