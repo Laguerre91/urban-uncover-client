@@ -44,7 +44,10 @@ const ActivityDetailsCard = () => {
             .get(`${API_BASE_URL}/${activityId}`)
             .then((response) => {
                 setActivity(response.data);
-                setRatings(response.data.rate);
+                const { rate } = response.data;
+                const sum = rate.reduce((total, rating) => total + rating, 0);
+                const average = rate.length > 0 ? sum / rate.length : 0;
+                setAverageRating(average.toFixed(1));
                 setIsLoading(false)
             })
             .catch((err) => console.log(err));
@@ -70,22 +73,22 @@ const ActivityDetailsCard = () => {
 
         const updatedActivity = { ...activity, rate: [...activity.rate, parseInt(value)] }
 
-        setActivity(updatedActivity)
-
         axios
             .put(`${API_BASE_URL}/${activityId}`, updatedActivity)
             .then(() => {
                 loadActivity()
-                calculateAverageRating()
+
                 handleCloseRate();
             })
             .catch(err => console.log(err))
     }
 
     const calculateAverageRating = () => {
+
         const sum = ratings.reduce((total, rating) => total + rating, 0);
         const average = sum / ratings.length || 0;
-        setAverageRating(average.toFixed(2));
+        setAverageRating(average.toFixed(1));
+
     };
 
 
@@ -99,7 +102,14 @@ const ActivityDetailsCard = () => {
                     <Row key={activity.id}>
                         <Col md={6}>
                             <img className='img-activity' src={activity.image} alt="Image from {activity.name}" />
-                            <p>Average Rating: {averageRating}</p>
+                            {
+                                averageRating === '0.0' ? (
+                                    <p className='noRate'>This activity hasn't been rated yet</p>
+                                ) : (
+                                    <p className='rate'>⭐ Average Rating: {averageRating} ⭐</p>
+                                )
+                            }
+
                         </Col>
                         <Col className='text' md={6}>
                             <h2>{activity.name}</h2>
