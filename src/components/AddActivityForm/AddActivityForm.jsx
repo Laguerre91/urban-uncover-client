@@ -18,7 +18,7 @@ function AddActivityForm({fetchActivities}) {
         description: '',
         category: '',
         image: '',
-        cityID:'',
+        cityId:0,
         location: {
             address: ''
         },
@@ -48,10 +48,10 @@ function AddActivityForm({fetchActivities}) {
         .then((response) => {
             const newActivity = response.data;
             setActivityData(newActivity);
-            newActivity.id += 1;
-            navigate(`/cities/${activityData.cityID}`);
+            newActivity.Id += 1;
+            navigate(`/cities/${activityData.cityId}`);
 
-            fetchActivities(activityData.cityID);
+            fetchActivities(activityData.cityId);
         })
         .catch(err => console.log(err))
     }
@@ -77,7 +77,7 @@ function AddActivityForm({fetchActivities}) {
     
 
     const handleCityChange = e => {
-        setActivityData({ ...activityData, cityID: e.target.value })
+        setActivityData({ ...activityData, cityId: e.target.value })
     }
 
 
@@ -91,8 +91,8 @@ function AddActivityForm({fetchActivities}) {
                     <Col>
                         <Form.Group className="mb-3" controlId="city">
                         <Form.Label>City</Form.Label>
-                        <Form.Select value={activityData.cityID} onChange={handleCityChange}>
-                            <option value="">Select a city</option>
+                        <Form.Select value={activityData.cityId} onChange={handleCityChange}>
+                            <option value= ''>Select a city</option>
                             {cities.map((city) => (
                             <option key={city.id} value={city.id}>
                                 {city.name}
