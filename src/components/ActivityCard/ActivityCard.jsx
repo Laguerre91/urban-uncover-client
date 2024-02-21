@@ -32,7 +32,6 @@ const ActivityCard = props => {
               <h2 className='act-header'>{activity.name}</h2>
               <Card.Body className='act-body'>
                 <Card.Text>
-                  <p><strong>Categories: </strong>{activity.categories.join(", ")}</p>
 
                   {
                     activity.activitySpecs.price === 0 ? (
