@@ -16,7 +16,7 @@ function AddActivityForm({fetchActivities}) {
     const [activityData, setActivityData] = useState({
         name: '',
         description: '',
-        categories: '',
+        categories: [],
         image: '',
         cityId:0,
         location: {
