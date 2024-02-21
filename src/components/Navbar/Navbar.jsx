@@ -5,9 +5,11 @@ import axios from 'axios';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import DropDownSearch from './../DropDownSearch/DropDownSearch'
 import './Navbar.css'
 import letteringLogo from './../../assets/images/letteringLogo.png'
+
+
 
 const API_URL_BASE = "http://localhost:5005/cities"
 
@@ -57,6 +59,7 @@ const NavBar = () => {
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
+      <DropDownSearch />
     </Navbar>
   );
 }
