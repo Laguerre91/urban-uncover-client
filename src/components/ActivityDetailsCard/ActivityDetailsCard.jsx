@@ -54,7 +54,6 @@ const ActivityDetailsCard = () => {
     };
 
 
-
     const deleteActivity = () => {
 
         axios
@@ -63,9 +62,6 @@ const ActivityDetailsCard = () => {
             .catch(err => console.log(err))
     }
 
-    const handleRatingChange = (event) => {
-        setRatings(parseInt(event.target.value, 10));
-    };
 
     const submitRating = (e) => {
 
@@ -83,14 +79,6 @@ const ActivityDetailsCard = () => {
             .catch(err => console.log(err))
     }
 
-    const calculateAverageRating = () => {
-
-        const sum = ratings.reduce((total, rating) => total + rating, 0);
-        const average = sum / ratings.length || 0;
-        setAverageRating(average.toFixed(1));
-
-    };
-
 
     return (
         <Container className="ActivityDetailsCard">
@@ -100,7 +88,7 @@ const ActivityDetailsCard = () => {
                     <Spinner animation="border" variant="secondary">Loading...</Spinner>
                     :
                     <Row key={activity.id}>
-                        <Col md={6}>
+                        <Col md={6} className='rate-positioning'>
                             <img className='img-activity' src={activity.image} alt="Image from {activity.name}" />
                             {
                                 averageRating === '0.0' ? (
@@ -109,7 +97,7 @@ const ActivityDetailsCard = () => {
                                     <p className='rate'>⭐ Average Rating: {averageRating} ⭐</p>
                                 )
                             }
-
+                            <Button className='btn-edit' variant='secondary' onClick={handleShowRate}>Rate this activity</Button>
                         </Col>
                         <Col className='text' md={6}>
                             <h2>{activity.name}</h2>
@@ -167,8 +155,9 @@ const ActivityDetailsCard = () => {
                             </Link>
 
                             <div className='btns'>
-                                <Button className='btn-edit' variant='secondary' onClick={handleShowRate}>Rate this activity</Button>
+
                                 <Button className='btn-delete' variant='danger' onClick={handleShowDelete}>X</Button>
+
                             </div>
                         </Col>
                     </Row>

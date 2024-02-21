@@ -18,7 +18,17 @@
     color: white;
 }
 
+.dropdown-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
 .cities-link {
+    padding: 10px;
+    font-size: 1.1em;
     text-decoration: none;
     color: black;
 }
