@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col, Dropdown } from "react-bootstrap";
 
 import './AddActivityForm.css'
 
@@ -12,6 +12,19 @@ const API_URL_BASE = "http://localhost:5005"
 function AddActivityForm({fetchActivities}) {
 
     const [cities, setCities] = useState([])
+    const [selectedCategories, setSelectedCategories] = useState([])
+    const categories = ['Art', 'Culture', 'Food', 'Music', 'Night Life', 'Sport']
+
+
+    const toggleCategory = (option) => {
+        if (selectedCategories.includes(option)) {
+            setSelectedCategories(
+                selectedCategories.filter((item) => item !== option)
+            );
+        } else {
+            setSelectedCategories([...selectedCategories, option]);
+        }
+    }
 
     const [activityData, setActivityData] = useState({
         name: '',
@@ -49,9 +62,15 @@ function AddActivityForm({fetchActivities}) {
 
       const handleFormSubmit = e => {
         e.preventDefault()
+
+
+        const updatedActivityData = {
+            ...activityData,
+            categories: selectedCategories
+        }
       
         axios
-        .post(`${API_URL_BASE}/activities`, activityData)
+        .post(`${API_URL_BASE}/activities`, updatedActivityData)
         .then((response) => {
             const newActivity = response.data
             setActivityData(newActivity)
@@ -133,17 +152,25 @@ function AddActivityForm({fetchActivities}) {
                     </Col>
 
                     <Col>
-
-                        <Form.Group className="mb-3" controlId="category">
-                            <Form.Label>Category of the Activity</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={activityData.category}
-                                onChange={handleInputChange}
-                                name={'category'}
-                            />
+                        <Form.Group className="mb-3" controlId="categories">
+                            <Form.Label>Categories</Form.Label>
+                            <Dropdown>
+                                <Dropdown.Toggle variant="success" id="dropdown-categories">
+                                    Select Categories
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    {categories.map((option, index) => (
+                                        <Dropdown.Item
+                                            key={index}
+                                            onClick={() => toggleCategory(option)}
+                                            active={selectedCategories.includes(option)}
+                                        >
+                                            {option}
+                                        </Dropdown.Item>
+                                    ))}
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </Form.Group>
-
                     </Col>
 
                     <Col>
@@ -271,6 +298,10 @@ function AddActivityForm({fetchActivities}) {
                     <Button variant="dark" type="submit">Add your activity!</Button>
                 </div>
             </Form>
+            <div>
+                <strong>Selected Categories:</strong>{' '}
+                {selectedCategories.join(', ')}
+            </div>
 
         </div>
     )
