@@ -32,7 +32,7 @@ function AddActivityForm({fetchActivities}) {
             },
             seasonal: ''
         },
-        rate: 0
+        rate: []
     })
 
     const navigate = useNavigate()
@@ -242,22 +242,28 @@ function AddActivityForm({fetchActivities}) {
                         />
                     </Col>
                     <Col>
-                        <Form.Check
-                            type="checkbox"
-                            label="Indoor"
-                            name="conditions.indoor"
-                            checked={activityData.activitySpecs.conditions.indoor}
-                            onChange={handleCheckboxChange}
-                        />
-                    </Col>
-                    <Col>
-                        <Form.Check
-                            type="checkbox"
-                            label="Outdoor"
-                            name="conditions.outdoor"
-                            checked={activityData.activitySpecs.conditions.outdoor}
-                            onChange={handleCheckboxChange}
-                        />
+                        <Form.Group className="mb-3" controlId="conditions">
+                            <Form.Label>Indoor/Outdoor</Form.Label>
+                            <Form.Select
+                                value={activityData.activitySpecs.conditions.indoor ? "indoor" : "outdoor"}
+                                onChange={e => {
+                                    const value = e.target.value;
+                                    setActivityData(prevState => ({
+                                        ...prevState,
+                                        activitySpecs: {
+                                            ...prevState.activitySpecs,
+                                            conditions: {
+                                                indoor: value === "indoor",
+                                                outdoor: value === "outdoor"
+                                            }
+                                        }
+                                    }));
+                                }}
+                            >
+                                <option value="indoor">Indoor</option>
+                                <option value="outdoor">Outdoor</option>
+                            </Form.Select>
+                        </Form.Group>
                     </Col>
                 </Row>
 
