@@ -1,6 +1,7 @@
 import { useEffect, useState, } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Row, Col, Container, Spinner, Button, Modal } from "react-bootstrap"
+import { Form } from 'react-bootstrap';
 import axios from 'axios';
 import pin from './../../assets/images/pin.png'
 
@@ -11,16 +12,26 @@ const API_BASE_URL = "http://localhost:5005/activities"
 
 const ActivityDetailsCard = () => {
 
-    const [activity, setActivity] = useState({ API_BASE_URL });
+    const [activity, setActivity] = useState({});
     const [isLoading, setIsLoading] = useState(true)
-    const [show, setShow] = useState(false);
+
+    const [ratings, setRatings] = useState([])
+    const [averageRating, setAverageRating] = useState(0)
+
+    const [showDelete, setShowDelete] = useState(false);
+    const [showRate, setShowRate] = useState(false)
 
     const { activityId } = useParams()
 
     const navigate = useNavigate()
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleCloseDelete = () => setShowDelete(false);
+    const handleShowDelete = () => setShowDelete(true);
+
+
+    const handleCloseRate = () => setShowRate(false);
+    const handleShowRate = () => setShowRate(true);
+
 
 
     useEffect(() => {
@@ -33,10 +44,13 @@ const ActivityDetailsCard = () => {
             .get(`${API_BASE_URL}/${activityId}`)
             .then((response) => {
                 setActivity(response.data);
+                setRatings(response.data.rate);
                 setIsLoading(false)
             })
             .catch((err) => console.log(err));
     };
+
+
 
     const deleteActivity = () => {
 
@@ -45,6 +59,34 @@ const ActivityDetailsCard = () => {
             .then(() => navigate(`/cities`))
             .catch(err => console.log(err))
     }
+
+    const handleRatingChange = (event) => {
+        setRatings(parseInt(event.target.value, 10));
+    };
+
+    const submitRating = (e) => {
+
+        const { value } = e.target
+
+        const updatedActivity = { ...activity, rate: [...activity.rate, parseInt(value)] }
+
+        setActivity(updatedActivity)
+
+        axios
+            .put(`${API_BASE_URL}/${activityId}`, updatedActivity)
+            .then(() => {
+                loadActivity()
+                calculateAverageRating()
+                handleCloseRate();
+            })
+            .catch(err => console.log(err))
+    }
+
+    const calculateAverageRating = () => {
+        const sum = ratings.reduce((total, rating) => total + rating, 0);
+        const average = sum / ratings.length || 0;
+        setAverageRating(average.toFixed(2));
+    };
 
 
     return (
@@ -57,6 +99,7 @@ const ActivityDetailsCard = () => {
                     <Row key={activity.id}>
                         <Col md={6}>
                             <img className='img-activity' src={activity.image} alt="Image from {activity.name}" />
+                            <p>Average Rating: {averageRating}</p>
                         </Col>
                         <Col className='text' md={6}>
                             <h2>{activity.name}</h2>
@@ -114,16 +157,17 @@ const ActivityDetailsCard = () => {
                             </Link>
 
                             <div className='btns'>
-                                <Button className='btn-edit' variant='secondary'>Edit activity</Button>
-                                <Button className='btn-delete' variant='danger' onClick={handleShow}>X</Button>
+                                <Button className='btn-edit' variant='secondary' onClick={handleShowRate}>Rate this activity</Button>
+                                <Button className='btn-delete' variant='danger' onClick={handleShowDelete}>X</Button>
                             </div>
                         </Col>
                     </Row>
+
             }
 
             <Modal
-                show={show}
-                onHide={handleClose}
+                show={showDelete}
+                onHide={handleCloseDelete}
                 backdrop="static"
                 keyboard={false}
             >
@@ -134,11 +178,31 @@ const ActivityDetailsCard = () => {
                     This action cannot be reversed. Are you sure you want to continue?
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={handleCloseDelete}>
                         Cancel
                     </Button>
                     <Button variant="danger" onClick={deleteActivity}>Delete Anyway</Button>
                 </Modal.Footer>
+            </Modal>
+
+            <Modal
+                show={showRate}
+                onHide={handleCloseRate}
+                animation={false}>
+
+                <Modal.Header closeButton>
+                    <Modal.Title>Rate the Activity</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Control as="select" onChange={submitRating}>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                    </Form.Control>
+                </Modal.Body>
+
             </Modal>
 
         </Container >

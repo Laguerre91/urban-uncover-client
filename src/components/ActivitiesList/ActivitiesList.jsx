@@ -15,8 +15,8 @@ const ActivitiesList = () => {
     const fetchActivities = (cityId) => {
         axios
             .get(`${API_URL_BASE}/${cityId}/activities`)
-            .then((response) => {
-                setActivities(response.data);
+            .then(({data}) => {
+                setActivities(data);
                 setIsLoading(false);
             })
             .catch((err) => {
@@ -33,7 +33,7 @@ const ActivitiesList = () => {
     };
 
     return (
-        <>
+        <div>
             <AddActivityForm
                 cityId={cityId}
                 fetchActivities={fetchActivities}
@@ -45,7 +45,7 @@ const ActivitiesList = () => {
                     handleAddActivity={handleAddActivity}
                 />
             ))}
-        </>
+        </div>
     );
 };
 
