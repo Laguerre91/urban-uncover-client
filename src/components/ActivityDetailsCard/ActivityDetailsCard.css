@@ -61,6 +61,11 @@
     justify-content: space-between;
 }
 
+.btn-edit {
+    background-color: #3291BA;
+    ;
+}
+
 .act-description {
     text-align: justify;
 }
@@ -68,4 +73,17 @@
 .text h2 {
     text-align: start;
     margin-bottom: 20px;
+}
+
+.noRate {
+    text-align: center;
+    color: rgb(199, 5, 5);
+    margin-top: 20px;
+    font-size: 1.05em;
+}
+
+.rate {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.05em;
 }
