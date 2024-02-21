@@ -48,17 +48,17 @@ function AddActivityForm({fetchActivities}) {
 
 
       const handleFormSubmit = e => {
-        e.preventDefault();
+        e.preventDefault()
       
         axios
         .post(`${API_URL_BASE}/activities`, activityData)
         .then((response) => {
-            const newActivity = response.data;
-            setActivityData(newActivity);
-            newActivity.Id += 1;
-            navigate(`/cities/${activityData.cityId}`);
+            const newActivity = response.data
+            setActivityData(newActivity)
+            newActivity.Id += 1
+            navigate(`/cities/${activityData.cityId}`)
 
-            fetchActivities(activityData.cityId);
+            fetchActivities(activityData.cityId)
         })
         .catch(err => console.log(err))
     }
@@ -66,7 +66,7 @@ function AddActivityForm({fetchActivities}) {
     
 
     const handleInputChange = e => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
     
         if (name.includes('.')) {
             const [fieldName, nestedFieldName] = name.split('.')
@@ -78,9 +78,20 @@ function AddActivityForm({fetchActivities}) {
                 }
             }));
         } else {
-            setActivityData(prevState => ({ ...prevState, [name]: value }));
+            setActivityData(prevState => ({ ...prevState, [name]: value }))
         }
-    };
+    }
+
+    const handleCheckboxChange = (e) => {
+        const {name, checked} = e.target
+        setActivityData(prevState => ({
+            ...prevState,
+            activitySpecs: {
+                ...prevState.activitySpecs,
+                [name]: checked
+            }
+        }))
+    }
     
 
     const handleCityChange = e => {
@@ -210,7 +221,45 @@ function AddActivityForm({fetchActivities}) {
 
                     </Col>
                 </Row>
-
+                
+                <Row>
+                    <Col>
+                        <Form.Check
+                            type="checkbox"
+                            label="Family Friendly"
+                            name="family"
+                            checked={activityData.activitySpecs.family}
+                            onChange={handleCheckboxChange}
+                        />
+                    </Col>
+                    <Col>
+                        <Form.Check
+                            type="checkbox"
+                            label="Allows Pets"
+                            name="pets"
+                            checked={activityData.activitySpecs.pets}
+                            onChange={handleCheckboxChange}
+                        />
+                    </Col>
+                    <Col>
+                        <Form.Check
+                            type="checkbox"
+                            label="Indoor"
+                            name="conditions.indoor"
+                            checked={activityData.activitySpecs.conditions.indoor}
+                            onChange={handleCheckboxChange}
+                        />
+                    </Col>
+                    <Col>
+                        <Form.Check
+                            type="checkbox"
+                            label="Outdoor"
+                            name="conditions.outdoor"
+                            checked={activityData.activitySpecs.conditions.outdoor}
+                            onChange={handleCheckboxChange}
+                        />
+                    </Col>
+                </Row>
 
                 <div className="d-grid">
                     <Button variant="dark" type="submit">Add your activity!</Button>
