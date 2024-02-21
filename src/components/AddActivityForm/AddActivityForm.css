@@ -1,4 +1,12 @@
-.AddActivityForm {
-    padding: 20px;
-    width: 60%;
+.modal-form {
+    text-align: start;
+    padding: 30px;
+    background-color: rgb(172, 176, 181);
+}
+
+.modal-form-button {
+    border: none;
+    margin-right: 20px;
+    background-color: rgb(40, 78, 97);
+    padding: 10px;
 }
