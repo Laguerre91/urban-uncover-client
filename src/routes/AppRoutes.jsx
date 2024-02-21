@@ -16,7 +16,7 @@ const AppRoutes = () => {
             <Route path="/cities/:cityId/:activityId" element={<ActivityDetailsPage />} />
             <Route path="/cities/:cityId" element={<CityPage />} />
             <Route path='/cities' element={<AllCitiesPage />} />
-            <Route path='/errorPage' element={<ErrorPage />} />
+            <Route path='*' element={<ErrorPage />} />
 
         </Routes>
     )
