@@ -4,6 +4,7 @@ import { Row, Col, Container, Spinner, Button, Modal } from "react-bootstrap"
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
 import pin from './../../assets/images/pin.png'
+import urbanLogo from './../../assets/images/urbanUncoverLogo.png'
 
 
 import './ActivityDetailsCard.css'
@@ -94,10 +95,11 @@ const ActivityDetailsCard = () => {
                                 averageRating === '0.0' ? (
                                     <p className='noRate'>This activity hasn't been rated yet</p>
                                 ) : (
-                                    <p className='rate'>⭐ Average Rating: {averageRating} ⭐</p>
+                                    <p className='rate'>⭐ Average Rating: <strong>{averageRating}</strong> ⭐</p>
                                 )
                             }
                             <Button className='btn-edit' variant='secondary' onClick={handleShowRate}>Rate this activity</Button>
+
                         </Col>
                         <Col className='text' md={6}>
                             <h2>{activity.name}</h2>
