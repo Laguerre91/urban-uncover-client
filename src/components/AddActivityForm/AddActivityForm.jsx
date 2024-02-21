@@ -16,7 +16,7 @@ function AddActivityForm({fetchActivities}) {
     const [activityData, setActivityData] = useState({
         name: '',
         description: '',
-        category: '',
+        categories: '',
         image: '',
         cityId:0,
         location: {
@@ -24,8 +24,15 @@ function AddActivityForm({fetchActivities}) {
         },
         activitySpecs: {
             price: 0,
+            pets: false,
+            family: false,
+            conditions: {
+                outdoor: false,
+                indoor: false
+            },
+            seasonal: ''
         },
-        seasonal: ''
+        rate: 0
     })
 
     const navigate = useNavigate()
@@ -178,9 +185,9 @@ function AddActivityForm({fetchActivities}) {
                             <Form.Label>Which season is best to go?</Form.Label>
                             <Form.Control
                                 type="text"
-                                value={activityData.seasonal}
+                                value={activityData.activitySpecs.seasonal}
                                 onChange={handleInputChange}
-                                name={'seasonal'}
+                                name={'activitySpecs.seasonal'}
                             />
                         </Form.Group>
 
