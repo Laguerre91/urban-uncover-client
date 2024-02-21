@@ -50,3 +50,15 @@
 .cityHeader {
     background: none;
 }
+
+.activity-link {
+    text-decoration: none;
+    color: #3F7891;
+    padding-bottom: 10px;
+}
+
+.card-link {
+    line-height: 3em;
+    word-spacing: -.05em;
+    margin-bottom: 15px;
+}

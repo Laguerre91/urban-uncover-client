@@ -48,10 +48,12 @@ const CityCard = props => {
                             <h4>Activities:</h4>
                             {activities[city.id] &&
                                 activities[city.id].map((activity) => (
-                                    <Card.Text>
-                                        {activity.name}.{" "}
-                                        <strong>{activity.categories.join(", ")}</strong>
-                                    </Card.Text>
+                                    <Link className="activity-link" to={`/cities/activities/${activity.id}`}>
+                                        <Card.Text className="card-link" >
+                                            {activity.name}.{" "}
+                                            <strong>{activity.categories.join(", ")}</strong>
+                                        </Card.Text>
+                                    </Link>
                                 ))}
                             <Link className="link-btn" to={`/cities/${city.id}`}>
                                 <div className="d-grid gap-2">
@@ -64,7 +66,7 @@ const CityCard = props => {
                     </Card>
                 </Col>
             </Row>
-        </div>
+        </div >
     );
 }
 
