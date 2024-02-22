@@ -4,8 +4,6 @@ import { Row, Col, Container, Spinner, Button, Modal } from "react-bootstrap"
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
 import pin from './../../assets/images/pin.png'
-import urbanLogo from './../../assets/images/urbanUncoverLogo.png'
-
 
 import './ActivityDetailsCard.css'
 
@@ -16,11 +14,13 @@ const ActivityDetailsCard = () => {
     const [activity, setActivity] = useState({});
     const [isLoading, setIsLoading] = useState(true)
 
-    const [ratings, setRatings] = useState([])
     const [averageRating, setAverageRating] = useState(0)
+    const [newReview, setNewReview] = useState("");
 
     const [showDelete, setShowDelete] = useState(false);
     const [showRate, setShowRate] = useState(false)
+
+    const [showReview, setShowReview] = useState(false)
 
     const { activityId } = useParams()
 
@@ -29,9 +29,16 @@ const ActivityDetailsCard = () => {
     const handleCloseDelete = () => setShowDelete(false);
     const handleShowDelete = () => setShowDelete(true);
 
-
     const handleCloseRate = () => setShowRate(false);
     const handleShowRate = () => setShowRate(true);
+
+    const handleCloseReview = () => {
+
+
+        setShowReview(false)
+    };
+
+    const handleShowReview = () => setShowReview(true);
 
 
 
@@ -68,13 +75,17 @@ const ActivityDetailsCard = () => {
 
         const { value } = e.target
 
-        const updatedActivity = { ...activity, rate: [...activity.rate, parseInt(value)] }
+        const updatedActivity = {
+            ...activity,
+            rate: [...activity.rate, parseInt(value)],
+            review: [...activity.review, newReview]
+        }
 
         axios
             .put(`${API_BASE_URL}/${activityId}`, updatedActivity)
             .then(() => {
                 loadActivity()
-
+                setNewReview("");
                 handleCloseRate();
             })
             .catch(err => console.log(err))
@@ -95,7 +106,10 @@ const ActivityDetailsCard = () => {
                                 averageRating === '0.0' ? (
                                     <p className='noRate'>This activity hasn't been rated yet</p>
                                 ) : (
-                                    <p className='rate'>⭐ Average Rating: <strong>{averageRating}</strong> ⭐</p>
+                                    <div>
+                                        <p className='rate'>⭐ Average Rating: <strong>{averageRating}</strong> ⭐</p>
+                                        <p onClick={handleShowReview}>View all reviews</p>
+                                    </div>
                                 )
                             }
                             <Button className='btn-edit' variant='secondary' onClick={handleShowRate}>Rate this activity</Button>
@@ -166,6 +180,8 @@ const ActivityDetailsCard = () => {
 
             }
 
+            {/* DELETE MODAL */}
+
             <Modal
                 show={showDelete}
                 onHide={handleCloseDelete}
@@ -186,24 +202,61 @@ const ActivityDetailsCard = () => {
                 </Modal.Footer>
             </Modal>
 
+            {/* RATE MODAL */}
+
             <Modal
                 show={showRate}
                 onHide={handleCloseRate}
                 animation={false}>
 
                 <Modal.Header closeButton>
-                    <Modal.Title>Rate the Activity</Modal.Title>
+                    <Modal.Title>Let us know your opinion</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <Form.Control as="select" onChange={submitRating}>
+                <Modal.Body className='modal-review'>
+                    <Form.Label>Rate this activity!</Form.Label>
+                    <Form.Control as="select" className='mb-3'>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
                         <option value={4}>4</option>
                         <option value={5}>5</option>
                     </Form.Control>
-                </Modal.Body>
+                    <Form.Label>Did you enjoy this activity?</Form.Label>
+                    <Form.Control
+                        value={newReview}
+                        onChange={(e) => setNewReview(e.target.value)}
+                        type="text"
+                        placeholder="Write a review"
+                        className='mb-4' />
 
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={submitRating}>Save changes</Button>
+                </Modal.Footer>
+
+            </Modal>
+
+            {/* REVIEWS MODAL */}
+
+            <Modal show={showReview} onHide={handleCloseReview}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Reviews</Modal.Title>
+                </Modal.Header>
+
+                {
+                    activity.review ? (
+                        activity.review.map((review, index) => (
+                            <Modal.Body key={index}>{review}</Modal.Body>
+                        ))
+                    ) : (
+                        <Modal.Body>No reviews available.</Modal.Body>
+                    )
+                }
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseReview}>
+                        Close
+                    </Button>
+                </Modal.Footer>
             </Modal>
 
         </Container >
