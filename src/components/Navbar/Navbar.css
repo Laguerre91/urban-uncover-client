@@ -38,10 +38,73 @@
     position: 'absolute'
 }
 
-.d-flex {
-    margin-right: 50px;
+.searchBar {
+    width: 406.21px;
+    border-radius: 0px;
+    border-right: none;
+    border: none;
 }
 
 .searchResults {
+    width: 446.21px;
     position: absolute;
+    height: 309px;
+    top: 50px;
+    right: 62px;
+    overflow: scroll;
+    border-radius: 0px;
+}
+
+.glass {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background-color: white;
+    margin-right: 60px;
+    border-left: none;
+}
+
+.searchBarImage {
+    width: 90px;
+    height: auto;
+}
+
+@media screen and (min-width: 480px) {
+    .searchBar {
+        width: 406.21px;
+    }
+
+    .searchResults {
+        width: 446.21px;
+        position: absolute;
+    }
+
+    .glass {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        background-color: white;
+        margin-right: 60px;
+        border-left: none;
+    }
+
+    .searchBarImage {
+        width: 90px;
+        height: auto;
+    }
+}
+
+.results-container,
+.text-results,
+.pay-results {
+    display: flex;
+}
+
+.text-results {
+    margin-left: 5px;
+
+}
+
+.results-container {
+    align-items: center;
 }

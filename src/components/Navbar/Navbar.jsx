@@ -98,11 +98,30 @@ const NavBar = () => {
                 {
                   result.activitySpecs.price === 0 ? (
 
-                    <ListGroup.Item><div>{result.name} - Free </div></ListGroup.Item>
+                    <ListGroup.Item>
+                      <div className='results-container'>
+
+                        <div>
+                          <img src={result.image} alt="activity image" className='searchBarImage' />
+                        </div>
+
+                        <div className='text-results'>
+                          <p>{result.name} - Free</p>
+                        </div>
+
+                      </div>
+
+                    </ListGroup.Item>
+
                   ) : (
                     <ListGroup.Item>
-                      <div>
-                        <img src={result.image} alt="activity image" className='searchBarImage' /> {result.name} - {result.activitySpecs.price}€
+                      <div className='results-container'>
+                        <div>
+                          <img src={result.image} alt="activity image" className='searchBarImage' />
+                        </div>
+                        <div className='text-results'>
+                          {result.name} - {result.activitySpecs.price}€
+                        </div>
                       </div>
                     </ListGroup.Item>
                   )
