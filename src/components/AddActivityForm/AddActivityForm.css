@@ -7,6 +7,10 @@
 .modal-form-button {
     border: none;
     margin-right: 20px;
-    background-color: rgb(40, 78, 97);
+    background-color: #3291BA;
     padding: 10px;
+    margin-bottom: 80px;
+    margin-left: 35%;
+    align-content: center;
+    width: 400px;
 }

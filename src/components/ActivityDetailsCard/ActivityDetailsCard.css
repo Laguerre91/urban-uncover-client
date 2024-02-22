@@ -35,6 +35,32 @@
     color: white;
 }
 
+@media screen and (min-width: 480px) {
+    .act-category {
+        padding: 7px;
+        background-color: #3291BA;
+        border-radius: 5px;
+        color: white;
+        text-align: center;
+        margin-left: 15px;
+    }
+
+    .btn-edit {
+        margin-top: 1px;
+        margin-bottom: 30px;
+    }
+
+    .img-activity {
+        margin-bottom: 15px;
+    }
+
+    .noRate,
+    .rate {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
 .free-act {
     color: green;
 }
@@ -92,4 +118,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.modal-review {
+    text-align: center;
 }
