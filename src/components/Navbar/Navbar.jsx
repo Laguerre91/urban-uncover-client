@@ -9,6 +9,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Form, FormControl } from 'react-bootstrap';
 import { ListGroup } from 'react-bootstrap';
 import './Navbar.css';
+import magnifyingGlass from './../../assets/images/MagnifyingGlass.png'
 import letteringLogo from './../../assets/images/letteringLogo.png';
 
 const API_URL_BASE = "http://localhost:5005";
@@ -83,17 +84,30 @@ const NavBar = () => {
           <FormControl
             type="search"
             placeholder="Enter maximum price"
-            className="mr-2"
+            className="searchBar"
             value={budget}
             onChange={handleBudgetChange}
             onKeyDown={handleKeyDown}
           />
+          <img className='glass' src={magnifyingGlass} alt="Magnifying Glass" />
         </Form>
         {searchResults.length > 0 && (
           <ListGroup className='searchResults'>
             {searchResults.map(result => (
               <Link key={result.id} to={`/cities/activities/${result.id}`} style={{ textDecoration: 'none' }} onClick={handleResultClick}>
-                <ListGroup.Item>{result.name} - {result.activitySpecs.price}€</ListGroup.Item>
+                {
+                  result.activitySpecs.price === 0 ? (
+
+                    <ListGroup.Item><div>{result.name} - Free </div></ListGroup.Item>
+                  ) : (
+                    <ListGroup.Item>
+                      <div>
+                        <img src={result.image} alt="activity image" className='searchBarImage' /> {result.name} - {result.activitySpecs.price}€
+                      </div>
+                    </ListGroup.Item>
+                  )
+                }
+
               </Link>
             ))}
           </ListGroup>
