@@ -90,7 +90,7 @@ const NavBar = () => {
           />
         </Form>
         {searchResults.length > 0 && (
-          <ListGroup className='searchResults' style={{ position: 'absolute' }}>
+          <ListGroup className='searchResults'>
             {searchResults.map(result => (
               <Link key={result.id} to={`/cities/activities/${result.id}`} style={{ textDecoration: 'none' }} onClick={handleResultClick}>
                 <ListGroup.Item>{result.name} - {result.activitySpecs.price}€</ListGroup.Item>

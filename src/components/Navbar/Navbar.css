@@ -41,3 +41,7 @@
 .d-flex {
     margin-right: 50px;
 }
+
+.searchResults {
+    position: absolute;
+}
