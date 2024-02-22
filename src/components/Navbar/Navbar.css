@@ -32,7 +32,12 @@
     text-decoration: none;
     color: black;
 }
-.dropdown-search{
+
+.dropdown-search {
     display: 'block';
     position: 'absolute'
+}
+
+.d-flex {
+    margin-right: 50px;
 }
