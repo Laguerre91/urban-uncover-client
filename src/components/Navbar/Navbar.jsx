@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Form, FormControl } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import './Navbar.css';
 import letteringLogo from './../../assets/images/letteringLogo.png';
 
@@ -37,7 +38,7 @@ const NavBar = () => {
     setBudget(value);
     if (value) {
       axios
-        .get(`${API_URL_BASE}/activities?activitySpecs.price_lt${value}`)
+        .get(`${API_URL_BASE}/activities?activitySpecs.price_lte=${value}`)
         .then(response => {
           setSearchResults(response.data);
         }).catch(err => {
@@ -82,18 +83,16 @@ const NavBar = () => {
             onChange={handleBudgetChange}
             onKeyDown={handleKeyDown}
           />
-          {searchResults.length > 0 && (
-            <ul className="dropdown-search">
-              {searchResults.map(result => (
-                <li key={result.id} className="dropdown-items">
-                  <NavLink to={`/cities/activities/${result.id}`} className="cities-link">
-                    {result.name} - {result.activitySpecs.price}€
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          )}
         </Form>
+        {searchResults.length > 0 && (
+          <ListGroup style={{ position: 'absolute' }}>
+            {searchResults.map(result => (
+              <Link key={result.id} to={`/cities/activities/${result.id}`} style={{ textDecoration: 'none' }}>
+                <ListGroup.Item>{result.name} - {result.activitySpecs.price}€</ListGroup.Item>
+              </Link>
+            ))}
+          </ListGroup>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );
