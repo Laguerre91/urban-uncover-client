@@ -11,17 +11,6 @@ const CityPage = () => {
 
       <Container className="form-container">
 
-        <Row className="form-row">
-
-          <Col md={{ span: 6, offset: 3 }}>
-
-            <h3>Create a new activity!</h3>
-            <hr />
-
-          </Col>
-
-        </Row>
-
         <ActivitiesList />
 
       </Container>

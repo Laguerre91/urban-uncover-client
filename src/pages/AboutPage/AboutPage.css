@@ -12,6 +12,10 @@
 
 }
 
+.bodyCard {
+    align-content: center;
+}
+
 .profileFoto {
     width: auto;
     height: 50%;
@@ -26,4 +30,8 @@
 .gitLink,
 .edinLink {
     text-decoration: none;
+}
+
+.description {
+    background-color: rgba(255, 255, 255, 0);
 }
