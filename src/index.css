@@ -1,8 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  background: rgb(159, 205, 229);
-  background: linear-gradient(180deg, rgba(111, 179, 212, 0.866) 0%, rgba(183, 212, 225, 0.746) 100%);
+  /* background: rgb(159, 205, 229);
+  background: linear-gradient(180deg, rgba(111, 179, 212, 0.866) 0%, rgba(183, 212, 225, 0.746) 100%); */
+  background-color: #2D373B;
 }
 
 img {

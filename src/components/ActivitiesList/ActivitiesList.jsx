@@ -15,7 +15,7 @@ const ActivitiesList = () => {
     const fetchActivities = (cityId) => {
         axios
             .get(`${API_URL_BASE}/${cityId}/activities`)
-            .then(({data}) => {
+            .then(({ data }) => {
                 setActivities(data);
                 setIsLoading(false);
             })
@@ -34,10 +34,6 @@ const ActivitiesList = () => {
 
     return (
         <div>
-            <AddActivityForm
-                cityId={cityId}
-                fetchActivities={fetchActivities}
-            />
             {activities.map(activity => (
                 <ActivityCard
                     key={activity.id}
@@ -45,6 +41,10 @@ const ActivitiesList = () => {
                     handleAddActivity={handleAddActivity}
                 />
             ))}
+            <AddActivityForm
+                cityId={cityId}
+                fetchActivities={fetchActivities}
+            />
         </div>
     );
 };

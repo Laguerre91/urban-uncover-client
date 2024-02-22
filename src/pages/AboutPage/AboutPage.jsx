@@ -12,7 +12,7 @@ const AboutPage = () => {
         <Container className='AboutPage'>
             <Row>
                 <Col md={4}>
-                    <Card className='devCard'>
+                    <Card className='devCard h-100'>
                         <Card.Img className='profileFoto' variant="top" src={lara} />
                         <Card.Body>
                             <Card.Title>Lara Aguerre</Card.Title>
@@ -21,7 +21,7 @@ const AboutPage = () => {
                             </Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
-                            <ListGroup.Item>The fucking master of Devs!!!!</ListGroup.Item>
+                            <ListGroup.Item className='description'>The fucking master of Devs!!!!</ListGroup.Item>
                         </ListGroup>
                         <Card.Body className='bodyCard'>
                             <Card.Img className='imgLink' src={Git} href="#" alt='Lara Aguerre' />
@@ -32,7 +32,7 @@ const AboutPage = () => {
                     </Card>
                 </Col>
                 <Col md={4}>
-                    <Card Card className='devCard'>
+                    <Card Card className='devCard h-100'>
                         <Card.Img className='profileFoto' variant="top" src={jero} />
                         <Card.Body>
                             <Card.Title>Jerónimo Olea</Card.Title>
@@ -41,7 +41,7 @@ const AboutPage = () => {
                             </Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
-                            <ListGroup.Item>Seguirá estudiando para ser mejor aún.</ListGroup.Item>
+                            <ListGroup.Item className='description'>Seguirá estudiando para ser mejor aún.</ListGroup.Item>
                         </ListGroup>
                         <Card.Body>
                             <Card.Img className='imgLink' src={Git} alt='Jerónimo Olea' />
@@ -52,7 +52,7 @@ const AboutPage = () => {
                     </Card>
                 </Col>
                 <Col md={4}>
-                    <Card Card className='devCard'>
+                    <Card Card className='devCard h-100'>
                         <Card.Img className='profileFoto' variant="top" src={oscar} />
                         <Card.Body>
                             <Card.Title>Oscar Gómez</Card.Title>
@@ -61,7 +61,7 @@ const AboutPage = () => {
                             </Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
-                            <ListGroup.Item>Fotógrafo ecommerce, pasándose al otro lado de la web.</ListGroup.Item>
+                            <ListGroup.Item className='description'>Fotógrafo ecommerce, pasándose al otro lado de la web.</ListGroup.Item>
                         </ListGroup>
                         <Card.Body>
                             <Card.Img className='imgLink' src={Git} alt='Oscar Gómez' />
