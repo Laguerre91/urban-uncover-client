@@ -108,9 +108,9 @@ const ActivityDetailsCard = () => {
                                 averageRating === '0.0' ? (
                                     <p className='noRate'>This activity hasn't been rated yet</p>
                                 ) : (
-                                    <div>
-                                        <p className='rate'>⭐ Average Rating: <strong>{averageRating}</strong> ⭐</p>
-                                        <p onClick={handleShowReview}>View all reviews</p>
+                                    <div className='average-rating'>
+                                        <p className='rate mb-3'>⭐ Average Rating: <strong>{averageRating}</strong> ⭐</p>
+                                        <p onClick={handleShowReview} className='btn-review'> <strong>View all reviews</strong></p>
                                     </div>
                                 )
                             }
@@ -248,7 +248,9 @@ const ActivityDetailsCard = () => {
                 {
                     activity.review ? (
                         activity.review.map((review, index) => (
-                            <Modal.Body key={index}>{review}</Modal.Body>
+
+                            <Modal.Body key={index} className='modal-comments'>"{review}"</Modal.Body>
+
                         ))
                     ) : (
                         <Modal.Body>No reviews available.</Modal.Body>
