@@ -44,7 +44,7 @@ const ActivityDetailsCard = () => {
 
     useEffect(() => {
         loadActivity()
-    }, [])
+    }, [activityId])
 
     const loadActivity = () => {
 
