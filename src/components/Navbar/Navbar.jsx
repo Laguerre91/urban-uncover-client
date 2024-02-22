@@ -55,6 +55,11 @@ const NavBar = () => {
     }
   }
 
+  const handleResultClick = () => {
+    setBudget('');
+    setSearchResults([]);
+  }
+
   return (
     <Navbar expand='md' fixed='top' className='Navbar NavbarSpacing justify-content-between'>
       <NavLink to="/" className='navbar-brand'>
@@ -87,7 +92,7 @@ const NavBar = () => {
         {searchResults.length > 0 && (
           <ListGroup style={{ position: 'absolute' }}>
             {searchResults.map(result => (
-              <Link key={result.id} to={`/cities/activities/${result.id}`} style={{ textDecoration: 'none' }}>
+              <Link key={result.id} to={`/cities/activities/${result.id}`} style={{ textDecoration: 'none' }}onClick={handleResultClick}>
                 <ListGroup.Item>{result.name} - {result.activitySpecs.price}€</ListGroup.Item>
               </Link>
             ))}
