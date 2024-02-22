@@ -14,6 +14,7 @@ const ActivityDetailsCard = () => {
     const [activity, setActivity] = useState({});
     const [isLoading, setIsLoading] = useState(true)
 
+    const [rating, setRating] = useState(1)
     const [averageRating, setAverageRating] = useState(0)
     const [newReview, setNewReview] = useState("");
 
@@ -33,7 +34,6 @@ const ActivityDetailsCard = () => {
     const handleShowRate = () => setShowRate(true);
 
     const handleCloseReview = () => {
-
 
         setShowReview(false)
     };
@@ -75,9 +75,11 @@ const ActivityDetailsCard = () => {
 
         const { value } = e.target
 
+        console.log('------', value)
+
         const updatedActivity = {
             ...activity,
-            rate: [...activity.rate, parseInt(value)],
+            rate: [...activity.rate, rating],
             review: [...activity.review, newReview]
         }
 
@@ -85,8 +87,8 @@ const ActivityDetailsCard = () => {
             .put(`${API_BASE_URL}/${activityId}`, updatedActivity)
             .then(() => {
                 loadActivity()
-                setNewReview("");
                 handleCloseRate();
+                setNewReview("");
             })
             .catch(err => console.log(err))
     }
@@ -214,7 +216,7 @@ const ActivityDetailsCard = () => {
                 </Modal.Header>
                 <Modal.Body className='modal-review'>
                     <Form.Label>Rate this activity!</Form.Label>
-                    <Form.Control as="select" className='mb-3'>
+                    <Form.Control as="select" className='mb-3' value={rating} onChange={(e) => setRating(parseInt(e.target.value))}>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>

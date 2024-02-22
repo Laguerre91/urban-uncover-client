@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Nav from 'react-bootstrap/Nav';
@@ -9,8 +10,7 @@ import { Form, FormControl } from 'react-bootstrap';
 import './Navbar.css';
 import letteringLogo from './../../assets/images/letteringLogo.png';
 
-const API_URL_BASE = "http://localhost:5005/cities";
-const JSON_SERVER_BASE_URL = 'http://localhost:5005';
+const API_URL_BASE = "http://localhost:5005";
 
 const NavBar = () => {
   const [budget, setBudget] = useState('');
@@ -23,21 +23,21 @@ const NavBar = () => {
 
   const fetchCities = () => {
     axios
-      .get(API_URL_BASE)
+      .get(`${API_URL_BASE}/cities`)
       .then(response => {
         setCities(response.data);
       }).catch(err => {
         console.log(err);
       });
   };
-  
+
   const handleBudgetChange = (e) => {
     e.preventDefault()
     const value = e.target.value;
     setBudget(value);
     if (value) {
       axios
-        .get(`${JSON_SERVER_BASE_URL}/activities?activitySpecs.price_lt${value}`)
+        .get(`${API_URL_BASE}/activities?activitySpecs.price_lt${value}`)
         .then(response => {
           setSearchResults(response.data);
         }).catch(err => {
