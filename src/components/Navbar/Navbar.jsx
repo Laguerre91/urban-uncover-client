@@ -23,7 +23,7 @@ const NavBar = () => {
 
   const fetchCities = () => {
     axios
-      .get(API_URL_BASE)
+      .get(`${API_URL_BASE}/cities`)
       .then(response => {
         setCities(response.data);
       }).catch(err => {
