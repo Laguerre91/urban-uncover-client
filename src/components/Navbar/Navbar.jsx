@@ -83,11 +83,11 @@ const NavBar = () => {
             onKeyDown={handleKeyDown}
           />
           {searchResults.length > 0 && (
-            <ul className="dropdown-menu position-absolute" style={{ display: 'block', position: 'absolute' }}>
+            <ul className="dropdown-search">
               {searchResults.map(result => (
                 <li key={result.id} className="dropdown-items">
                   <NavLink to={`/cities/activities/${result.id}`} className="cities-link">
-                    {result.name} - ${result.price}
+                    {result.name} - {result.activitySpecs.price}€
                   </NavLink>
                 </li>
               ))}
