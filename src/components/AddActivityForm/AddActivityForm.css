@@ -14,3 +14,8 @@
     align-content: center;
     width: 400px;
 }
+
+.modal-form-button:hover {
+    background-color: aliceblue;
+    color: black;
+}
