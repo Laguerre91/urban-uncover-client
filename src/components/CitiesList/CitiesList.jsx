@@ -12,7 +12,7 @@ const CitiesList = () => {
 
     const loadCities = () => {
         axios
-            .get("https://urban-uncover-api.fly.dev")
+            .get("https://urban-uncover-api.fly.dev/cities")
             .then((response) => {
                 setCities(response.data);
                 setisLoading(false)
@@ -21,6 +21,7 @@ const CitiesList = () => {
     };
 
     return (
+
         cities.map(city => {
 
             return <CityCard key={city.id} cityInfo={city} />
