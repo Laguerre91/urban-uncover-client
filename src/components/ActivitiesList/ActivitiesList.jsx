@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 import ActivityCard from "../ActivityCard/ActivityCard";
 import AddActivityForm from "../AddActivityForm/AddActivityForm";
 
-const API_URL_BASE = "http://localhost:5005/cities";
+const API_URL_BASE = "https://urban-uncover-api.fly.dev";
 
 const ActivitiesList = () => {
     const { cityId } = useParams();
@@ -14,7 +14,7 @@ const ActivitiesList = () => {
 
     const fetchActivities = (cityId) => {
         axios
-            .get(`${API_URL_BASE}/${cityId}/activities`)
+            .get(`${API_URL_BASE}/cities/${cityId}/activities`)
             .then(({ data }) => {
                 setActivities(data);
                 setIsLoading(false);

@@ -15,7 +15,7 @@ const CityCard = props => {
 
     const loadActivities = () => {
         axios
-            .get("http://localhost:5005/activities")
+            .get("https://urban-uncover-api.fly.dev/activities")
             .then((response) => {
                 const activitiesByCity = {};
                 response.data.forEach((activity) => {

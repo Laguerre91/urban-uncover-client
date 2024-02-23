@@ -12,7 +12,7 @@ const CitiesList = () => {
 
     const loadCities = () => {
         axios
-            .get("http://localhost:5005/cities")
+            .get("https://urban-uncover-api.fly.dev")
             .then((response) => {
                 setCities(response.data);
                 setisLoading(false)

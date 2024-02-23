@@ -5,7 +5,7 @@ import './CityButtons.css'
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
-const API_URL_BASE = "http://localhost:5005/cities"
+const API_URL_BASE = "https://urban-uncover-api.fly.dev/cities"
 
 
 const CityButtons = () => {

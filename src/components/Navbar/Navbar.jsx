@@ -12,7 +12,7 @@ import './Navbar.css';
 import magnifyingGlass from './../../assets/images/MagnifyingGlass.png'
 import letteringLogo from './../../assets/images/letteringLogo.png';
 
-const API_URL_BASE = "http://localhost:5005";
+const API_URL_BASE = "https://urban-uncover-api.fly.dev";
 
 const NavBar = () => {
   const [budget, setBudget] = useState('');

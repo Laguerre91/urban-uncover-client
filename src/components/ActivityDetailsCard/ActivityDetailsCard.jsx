@@ -7,7 +7,7 @@ import pin from './../../assets/images/pin.png'
 
 import './ActivityDetailsCard.css'
 
-const API_BASE_URL = "http://localhost:5005/activities"
+const API_BASE_URL = "https://urban-uncover-api.fly.dev"
 
 const ActivityDetailsCard = () => {
 
@@ -49,7 +49,7 @@ const ActivityDetailsCard = () => {
     const loadActivity = () => {
 
         axios
-            .get(`${API_BASE_URL}/${activityId}`)
+            .get(`${API_BASE_URL}/activities/${activityId}`)
             .then((response) => {
                 setActivity(response.data);
                 const { rate } = response.data;
@@ -65,7 +65,7 @@ const ActivityDetailsCard = () => {
     const deleteActivity = () => {
 
         axios
-            .delete(`${API_BASE_URL}/${activityId}`)
+            .delete(`${API_BASE_URL}/activities/${activityId}`)
             .then(() => navigate(`/cities`))
             .catch(err => console.log(err))
     }
@@ -84,7 +84,7 @@ const ActivityDetailsCard = () => {
         }
 
         axios
-            .put(`${API_BASE_URL}/${activityId}`, updatedActivity)
+            .put(`${API_BASE_URL}/activities/${activityId}`, updatedActivity)
             .then(() => {
                 loadActivity()
                 handleCloseRate();

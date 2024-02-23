@@ -7,7 +7,7 @@ import { Button, Form, Row, Col, Dropdown } from "react-bootstrap";
 
 import './AddActivityForm.css'
 
-const API_URL_BASE = "http://localhost:5005"
+const API_URL_BASE = "https://urban-uncover-api.fly.dev"
 
 
 function AddActivityForm({ fetchActivities }) {
